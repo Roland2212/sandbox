@@ -1,21 +1,30 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, Observable } from 'rxjs';
+import { Credentials } from '@auth/interfaces/credentials.interface';
+import { User } from '@auth/interfaces/user.interface';
+import { EMPTY, Observable, delay, of, switchMap } from 'rxjs';
 
 @Injectable({
     providedIn: 'root',
 })
 export class AuthService {
-    isSignedIn = new BehaviorSubject<boolean>(false);
+    constructor(private http: HttpClient) {}
 
-    signIn(): void {
-        this.isSignedIn.next(true);
+    signIn(credentials: Credentials): Observable<User> {
+        // eslint-disable-next-line multiline-comment-style
+        // TODO: Add http call
+        // return this.http.post(`api/auth`, { ...credentials }, {}).pipe(
+        //     map(() => {
+        //         return { status: 200 };
+        //     }),
+        // );
+        return of(EMPTY).pipe(
+            delay(2000),
+            switchMap(() => {
+                return of({ id: '1', name: 'Roland', email: 'roland@gmail.com' });
+            }),
+        );
     }
 
-    signOut(): void {
-        this.isSignedIn.next(false);
-    }
-
-    isUserSignedIn(): Observable<boolean> {
-        return this.isSignedIn.asObservable();
-    }
+    // signOut(): void {}
 }

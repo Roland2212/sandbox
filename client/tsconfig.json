@@ -9,7 +9,8 @@
       "@core/*": ["src/app/core/*"],
       "@shared/*": ["src/app/shared/*"],
       "@estimation/*": ["src/app/estimation/*"],
-      "@team/*": ["src/app/team/*"]
+      "@team/*": ["src/app/team/*"],
+      "@store/*": ["src/app/store/*"]
     },
     "forceConsistentCasingInFileNames": true,
     "strict": true,

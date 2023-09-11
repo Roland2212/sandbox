@@ -29,7 +29,7 @@ export class NavigationComponent {
     ) {}
 
     onSignOut(): void {
-        this.authService.signOut();
+        // this.authService.signOut();
         void this.router.navigate(['', 'auth'], { relativeTo: this.route });
     }
 
