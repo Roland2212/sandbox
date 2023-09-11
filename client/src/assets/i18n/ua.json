@@ -1,0 +1,28 @@
+{
+  "common": {},
+  "buttons": {
+    "cancel": "Скасувати",
+    "save": "Зберегти",
+    "back": "Назад",
+    "create": "Створити",
+    "add_members": "Додати члена",
+    "create_team": "Створити команду"
+  },
+  "core": {
+    "language": "Мова",
+    "settings": "Налаштування",
+    "estimation": "Підрахунок",
+    "team": "Команда"
+  },
+  "team": {
+    "teams": "Команди",
+    "create_team": "Створити команду",
+    "team_name": "Назва команди",
+    "country": "Країна",
+    "information": "Інформація",
+    "team_members": "Члени команди",
+    "name": "Ім`я",
+    "surname": "Прізвище",
+    "role": "Посада"
+  }
+}

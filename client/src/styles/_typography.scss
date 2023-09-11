@@ -1,0 +1,175 @@
+@use '@angular/material' as mat;
+
+// Fonts
+@font-face {
+    font-family: 'Roboto';
+    src:
+        local('Roboto'),
+        local('Roboto-Regular'),
+        url('../assets/fonts/Roboto-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Roboto';
+    src:
+        local('Roboto Bold'),
+        local('Roboto-Bold'),
+        url('../assets/fonts/Roboto-Bold.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Roboto';
+    src:
+        local('Roboto Italic'),
+        local('Roboto-Italic'),
+        url('../assets/fonts/Roboto-Italic.ttf') format('truetype');
+    font-weight: normal;
+    font-style: italic;
+}
+@font-face {
+    font-family: 'Roboto';
+    src:
+        local('Roboto BoldItalic'),
+        local('Roboto-BoldItalic'),
+        url('../assets/fonts/Roboto-BoldItalic.ttf') format('truetype');
+    font-weight: bold;
+    font-style: italic;
+}
+@font-face {
+    font-family: 'Roboto';
+    src:
+        local('Roboto Light'),
+        local('Roboto-Light'),
+        url('../assets/fonts/Roboto-Light.ttf') format('truetype');
+    font-weight: 300;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Roboto';
+    src:
+        local('Roboto LightItalic'),
+        local('Roboto-LightItalic'),
+        url('../assets/fonts/Roboto-LightItalic.ttf') format('truetype');
+    font-weight: 300;
+    font-style: italic;
+}
+@font-face {
+    font-family: 'Roboto';
+    src:
+        local('Roboto Medium'),
+        local('Roboto-Medium'),
+        url('../assets/fonts/Roboto-Medium.ttf') format('truetype');
+    font-weight: 500;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Roboto';
+    src:
+        local('Roboto MediumItalic'),
+        local('Roboto-MediumItalic'),
+        url('../assets/fonts/Roboto-MediumItalic.ttf') format('truetype');
+    font-weight: 500;
+    font-style: italic;
+}
+
+// Typography Config
+$typography-config: mat.define-typography-config(
+    $headline-1:
+        mat.define-typography-level(
+            $font-family: 'Roboto',
+            $font-weight: 300,
+            $font-size: 112px,
+            $line-height: 112px,
+            $letter-spacing: -0.05em,
+        ),
+    $headline-2:
+        mat.define-typography-level(
+            $font-family: 'Roboto',
+            $font-weight: 400,
+            $font-size: 56px,
+            $line-height: 56px,
+            $letter-spacing: -0.02em,
+        ),
+    $headline-3:
+        mat.define-typography-level(
+            $font-family: 'Roboto',
+            $font-weight: 400,
+            $font-size: 45px,
+            $line-height: 48px,
+            $letter-spacing: -0.005em,
+        ),
+    $headline-4:
+        mat.define-typography-level(
+            $font-family: 'Roboto',
+            $font-weight: 400,
+            $font-size: 34px,
+            $line-height: 40px,
+            $letter-spacing: normal,
+        ),
+    $headline-5:
+        mat.define-typography-level(
+            $font-family: 'Roboto',
+            $font-weight: 400,
+            $font-size: 24px,
+            $line-height: 32px,
+            $letter-spacing: normal,
+        ),
+    $headline-6:
+        mat.define-typography-level(
+            $font-family: 'Roboto',
+            $font-weight: 400,
+            $font-size: 16px,
+            $line-height: 24px,
+            $letter-spacing: normal,
+        ),
+    $subtitle-2:
+        mat.define-typography-level(
+            $font-family: 'Roboto',
+            $font-weight: 400,
+            $font-size: 16px,
+            $line-height: 28px,
+            $letter-spacing: 0.0094em,
+        ),
+    $subtitle-1:
+        mat.define-typography-level(
+            $font-family: 'Roboto',
+            $font-weight: 500,
+            $font-size: 15px,
+            $line-height: 24px,
+            $letter-spacing: 0.0067em,
+        ),
+    $body-2:
+        mat.define-typography-level(
+            $font-family: 'Roboto',
+            $font-weight: 300,
+            $font-size: 14px,
+            $line-height: 24px,
+            $letter-spacing: 0.0179em,
+        ),
+    $body-1:
+        mat.define-typography-level(
+            $font-family: 'Roboto',
+            $font-weight: 300,
+            $font-size: 14px,
+            $line-height: 20px,
+            $letter-spacing: 0.0179em,
+        ),
+    $caption:
+        mat.define-typography-level(
+            $font-family: 'Roboto',
+            $font-weight: 400,
+            $font-size: 12px,
+            $line-height: 20px,
+            $letter-spacing: 0.0333em,
+        ),
+    $button:
+        mat.define-typography-level(
+            $font-family: 'Roboto',
+            $font-weight: 500,
+            $font-size: 14px,
+            $line-height: 14px,
+            $letter-spacing: 0.0893em,
+        ),
+);

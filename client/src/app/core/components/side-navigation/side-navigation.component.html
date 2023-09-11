@@ -1,0 +1,27 @@
+<div class="side-navigation-container">
+    <mat-drawer-container
+        class="side-navigation"
+        [hasBackdrop]="backdrop">
+        <mat-drawer
+            #drawer
+            [mode]="mode">
+            <div class="title">
+                <h2>Scrum Helper</h2>
+            </div>
+            <mat-list>
+                <mat-list-item
+                    *ngFor="let item of navigationItems"
+                    class="navigation-item"
+                    [routerLink]="item.path"
+                    routerLinkActive="active"
+                    matRipple>
+                    <mat-icon matListItemIcon>{{ item.icon }}</mat-icon>
+                    <div matListItemTitle>{{ item.label | translate }}</div>
+                </mat-list-item>
+            </mat-list>
+        </mat-drawer>
+        <mat-drawer-content class="drawer-content">
+            <ng-content select="[sideNavigationContent]"></ng-content>
+        </mat-drawer-content>
+    </mat-drawer-container>
+</div>

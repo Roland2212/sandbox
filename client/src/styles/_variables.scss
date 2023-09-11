@@ -1,0 +1,11 @@
+@use '@angular/material' as mat;
+@use './colors';
+
+$primary-color: map-get(colors.$primary-palette, 500);
+$accent-color: map-get(colors.$accent-palette, 500);
+$warn-color: map-get(colors.$warn-palette, 500);
+
+$white-color: rgb(255, 255, 255);
+$black-color: rgb(0, 0, 0);
+
+$light-grey: rgba(0, 0, 0, 0.1);

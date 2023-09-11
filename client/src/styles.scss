@@ -1,0 +1,58 @@
+@use '@angular/material' as mat;
+
+@use 'styles/colors';
+@use 'styles/theme';
+@use 'styles/typography';
+@use 'styles/variables';
+@use 'styles/mixins';
+
+@use 'styles/components/view';
+@use 'styles/components/card';
+@use 'styles/components/list';
+@use 'styles/components/form';
+@use 'styles/components/button';
+
+@include mat.core();
+
+$primary: mat.define-palette(colors.$primary-palette, 500);
+$accent: mat.define-palette(colors.$accent-palette, 900);
+// $warn: mat.define-palette(colors.$warn-palette, 500);
+$typography: typography.$typography-config;
+$density: -1;
+
+@include theme.apply-light-theme($primary, $accent, null, $typography, $density);
+
+html,
+body {
+    height: 100%;
+}
+body {
+    margin: 0;
+    font-family: Roboto, 'Helvetica Neue', sans-serif;
+}
+
+.root-wrapper {
+    @include mixins.full-height-width;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    margin: 0;
+    padding: 0;
+}
+
+h1,
+h2,
+h3 {
+    margin-bottom: 1em;
+}
+
+h4,
+h5,
+h6 {
+    margin-bottom: 0.5em;
+}

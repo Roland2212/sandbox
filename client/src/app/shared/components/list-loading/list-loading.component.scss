@@ -1,0 +1,53 @@
+@use 'variables';
+
+:host {
+    .loading-list {
+        .loading-list-item {
+            .figure-1,
+            mat-icon {
+                animation: blink-1 2s linear infinite;
+            }
+
+            .figure-1,
+            .figure-2 {
+                margin: 0.5em 0;
+                background-color: variables.$light-grey;
+                border-radius: 0.5em;
+            }
+
+            .figure-1 {
+                height: 18px;
+                max-width: 300px;
+            }
+            .figure-2 {
+                height: 14px;
+                max-width: 200px;
+                animation: blink-2 2s linear infinite;
+            }
+        }
+    }
+}
+
+@keyframes blink-1 {
+    0% {
+        opacity: 0.5;
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0.5;
+    }
+}
+
+@keyframes blink-2 {
+    0% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.5;
+    }
+    100% {
+        opacity: 1;
+    }
+}

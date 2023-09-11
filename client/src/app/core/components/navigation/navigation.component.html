@@ -1,0 +1,62 @@
+<div class="navigation-container">
+    <mat-toolbar *ngIf="isMobileLayout$ | async | isFalse">
+        <div class="navigation">
+            <div class="title">
+                <h1>SCRUM Helper</h1>
+            </div>
+            <div class="actions">
+                <div class="main">
+                    <a
+                        *ngFor="let item of navigationItems"
+                        class="navigation-item"
+                        routerLinkActive="active">
+                        <button
+                            mat-button
+                            [routerLink]="item.path">
+                            <mat-icon>{{ item.icon }}</mat-icon>
+                            <span>{{ item.label | translate }}</span>
+                        </button>
+                    </a>
+                </div>
+                <div class="settings">
+                    <button
+                        mat-icon-button
+                        (click)="onOpenSettingsDialog()">
+                        <mat-icon>tune</mat-icon>
+                    </button>
+                    <button
+                        mat-icon-button
+                        (click)="onSignOut()">
+                        <mat-icon>logout</mat-icon>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </mat-toolbar>
+
+    <mat-toolbar *ngIf="isMobileLayout$ | async">
+        <div class="navigation-mobile">
+            <div class="actions">
+                <div class="main">
+                    <button
+                        mat-icon-button
+                        (click)="onToggleSideNavigation()">
+                        <mat-icon>menu</mat-icon>
+                    </button>
+                </div>
+                <div class="settings">
+                    <button
+                        mat-icon-button
+                        (click)="onOpenSettingsDialog()">
+                        <mat-icon>tune</mat-icon>
+                    </button>
+                    <button
+                        mat-icon-button
+                        (click)="onSignOut()">
+                        <mat-icon>logout</mat-icon>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </mat-toolbar>
+</div>

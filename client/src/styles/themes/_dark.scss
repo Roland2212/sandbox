@@ -1,0 +1,17 @@
+@use '@angular/material' as mat;
+
+@mixin apply-dark-theme($primary: null, $accent: null, $warn: null, $typography: null, $density: null) {
+    $light-theme: mat.define-dark-theme(
+        (
+            color: (
+                primary: $primary,
+                accent: $accent,
+                warn: $warn,
+            ),
+            typography: $typography,
+            density: $density,
+        )
+    );
+
+    @include mat.all-component-themes($light-theme);
+}

@@ -1,0 +1,35 @@
+<div class="add-team-member-dialog-container">
+    <h2 mat-dialog-title>{{ 'buttons.add_members' | translate }}</h2>
+    <mat-dialog-content>
+        <form
+            class="form grid-1"
+            [formGroup]="form">
+            <mat-form-field>
+                <mat-label>{{ 'team.name' | translate }}</mat-label>
+                <input matInput />
+            </mat-form-field>
+            <mat-form-field>
+                <mat-label>{{ 'team.surname' | translate }}</mat-label>
+                <input matInput />
+            </mat-form-field>
+            <mat-form-field>
+                <mat-label>{{ 'team.role' | translate }}</mat-label>
+                <input matInput />
+            </mat-form-field>
+        </form>
+    </mat-dialog-content>
+    <mat-dialog-actions align="end">
+        <button
+            mat-button
+            mat-dialog-close>
+            {{ 'buttons.cancel' | translate }}
+        </button>
+        <button
+            mat-button
+            color="accent"
+            (click)="onSaveTeamMember()"
+            cdkFocusInitial>
+            {{ 'buttons.create' | translate }}
+        </button>
+    </mat-dialog-actions>
+</div>

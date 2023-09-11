@@ -1,0 +1,11 @@
+@use 'variables';
+@use 'mixins';
+
+:host {
+    @include mixins.flex-row;
+    @include mixins.full-height-width;
+
+    .overview-container {
+        flex: 1;
+    }
+}

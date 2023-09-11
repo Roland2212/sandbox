@@ -1,0 +1,29 @@
+<div class="team-list-container">
+    <ng-container *ngIf="teams$ | loading | async as items">
+        <ng-template [ngIf]="items?.value">
+            <mat-list>
+                <mat-list-item
+                    class="list-item"
+                    *ngFor="let team of items.value"
+                    matRipple
+                    (click)="onNavigateToEditTeam(team.id)">
+                    <mat-icon matListItemIcon>groups</mat-icon>
+                    <div matListItemTitle>{{ team.name }}</div>
+                    <div matListItemLine>{{ 'team.team_members' | translate }}: {{ team.members.length }}</div>
+                </mat-list-item>
+            </mat-list>
+        </ng-template>
+        <ng-template [ngIf]="items.loading">
+            <app-list-loading
+                icon="groups"
+                [itemsLength]="3">
+            </app-list-loading>
+        </ng-template>
+        <ng-template [ngIf]="!items?.value?.length && !items.loading">
+            <app-empty-data
+                icon="groups"
+                text="No teams created yet">
+            </app-empty-data>
+        </ng-template>
+    </ng-container>
+</div>
