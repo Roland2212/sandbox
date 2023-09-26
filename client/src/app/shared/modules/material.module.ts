@@ -33,6 +33,7 @@ import { MatStepperModule } from '@angular/material/stepper';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { ScrollingModule } from '@angular/cdk/scrolling';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
 
 const MATERIAL_MODULES = [
     CdkTreeModule,
@@ -68,6 +69,7 @@ const MATERIAL_MODULES = [
     MatDialogModule,
     MatGridListModule,
     ScrollingModule,
+    MatProgressBarModule,
 ];
 
 @NgModule({

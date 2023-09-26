@@ -7,8 +7,8 @@ import { TranslateModule } from '@ngx-translate/core';
 import { IsFalsePipe } from '@shared/pipes/is-false.pipe';
 import { ListLoadingComponent } from '@shared/components/list-loading/list-loading.component';
 import { HttpClientModule } from '@angular/common/http';
-import { LoadingPipe } from '@shared/pipes/loading.pipe';
 import { EmptyDataComponent } from '@shared/components/empty-data/empty-data.component';
+import { LoadingListPipe } from '@shared/pipes/loading-list.pipe';
 
 @NgModule({
     declarations: [
@@ -18,7 +18,7 @@ import { EmptyDataComponent } from '@shared/components/empty-data/empty-data.com
         EmptyDataComponent,
         // Pipes
         IsFalsePipe,
-        LoadingPipe,
+        LoadingListPipe,
     ],
     imports: [ReactiveFormsModule, CommonModule, MaterialModule, HttpClientModule, TranslateModule],
     exports: [
@@ -34,7 +34,7 @@ import { EmptyDataComponent } from '@shared/components/empty-data/empty-data.com
         EmptyDataComponent,
         // Pipes
         IsFalsePipe,
-        LoadingPipe,
+        LoadingListPipe,
     ],
     providers: [],
 })

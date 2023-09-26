@@ -1,27 +1,47 @@
-<div class="login-wrapper view">
+<div class="login-container view">
+    <div class="login-label">
+        <mat-icon color="primary">person</mat-icon>
+    </div>
     <form
         class="login-form"
         [formGroup]="form">
         <mat-form-field>
-            <mat-label>Login</mat-label>
+            <mat-label>{{ 'auth.login' | translate }}</mat-label>
+            <mat-icon
+                color="primary"
+                matPrefix>
+                person
+            </mat-icon>
             <input
                 matInput
                 formControlName="login" />
         </mat-form-field>
         <mat-form-field>
-            <mat-label>Password</mat-label>
+            <mat-label>{{ 'auth.password' | translate }}</mat-label>
+            <mat-icon
+                color="primary"
+                matPrefix>
+                lock
+            </mat-icon>
             <input
                 type="password"
                 matInput
                 formControlName="password" />
         </mat-form-field>
         <button
+            *ngIf="!loading; else loadingTemplate"
             type="button"
             mat-flat-button
             color="primary"
             (click)="signIn()">
             <mat-icon>login_outline</mat-icon>
-            Sign In
+            {{ 'auth.sign_in' | translate }}
         </button>
+
+        <ng-template #loadingTemplate>
+            <div class="loading-wrapper">
+                <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+            </div>
+        </ng-template>
     </form>
 </div>

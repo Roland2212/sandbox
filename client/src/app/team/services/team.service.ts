@@ -1,8 +1,84 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { AbstractControl, FormControl, FormGroup } from '@angular/forms';
+import { AbstractControl, FormGroup } from '@angular/forms';
 import { Member, Team } from '@team/interfaces/team.interface';
-import { BehaviorSubject, Observable } from 'rxjs';
+import { BehaviorSubject, EMPTY, Observable, delay, of, switchMap } from 'rxjs';
+
+// TODO: Remove Mock
+const TEAMS_MOCK: Team[] = [
+    {
+        id: '1',
+        name: 'Team Deloitte',
+        country: 'NL',
+        members: [],
+    },
+    {
+        id: '2',
+        name: 'Team MyCubes',
+        country: 'UA',
+        members: [],
+    },
+    {
+        id: '3',
+        name: 'Team Phillips',
+        country: 'NL',
+        members: [],
+    },
+    {
+        id: '4',
+        name: 'Team Phillips',
+        country: 'NL',
+        members: [],
+    },
+    {
+        id: '5',
+        name: 'Team Phillips',
+        country: 'NL',
+        members: [],
+    },
+    {
+        id: '6',
+        name: 'Team Phillips',
+        country: 'NL',
+        members: [],
+    },
+    {
+        id: '1',
+        name: 'Team Deloitte',
+        country: 'NL',
+        members: [],
+    },
+    {
+        id: '2',
+        name: 'Team MyCubes',
+        country: 'UA',
+        members: [],
+    },
+    {
+        id: '3',
+        name: 'Team Phillips',
+        country: 'NL',
+        members: [],
+    },
+    {
+        id: '3',
+        name: 'Team Phillips',
+        country: 'NL',
+        members: [],
+    },
+    {
+        id: '3',
+        name: 'Team Phillips',
+        country: 'NL',
+        members: [],
+    },
+    {
+        id: '3',
+        name: 'Team Phillips',
+        country: 'NL',
+        members: [],
+    },
+];
 
 @Injectable()
 export class TeamService {
@@ -29,7 +105,15 @@ export class TeamService {
     }
 
     getTeams(): Observable<Team[]> {
-        return this.http.get<Team[]>(`api/teams`, {});
+        // TODO: Add http call
+
+        // return this.http.get<Team[]>(`api/teams`, {});
+        return of(EMPTY).pipe(
+            delay(3000),
+            switchMap(() => {
+                return of(TEAMS_MOCK);
+            }),
+        );
     }
 
     getTeam(id: string): Observable<Team> {

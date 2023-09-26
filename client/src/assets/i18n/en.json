@@ -14,6 +14,11 @@
     "estimation": "Estimation",
     "team": "Team"
   },
+  "auth": {
+    "login": "Login",
+    "password": "Password",
+    "sign_in": "Sign In"
+  },
   "team": {
     "teams": "Teams",
     "create_team": "Create team",

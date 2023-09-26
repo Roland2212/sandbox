@@ -1,83 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Team } from '@team/interfaces/team.interface';
-import { EMPTY, Observable, delay, of, switchMap } from 'rxjs';
-
-// TODO: Remove Mock
-const TEAMS_MOCK: Team[] = [
-    {
-        id: '1',
-        name: 'Team Deloitte',
-        country: 'NL',
-        members: [],
-    },
-    {
-        id: '2',
-        name: 'Team MyCubes',
-        country: 'UA',
-        members: [],
-    },
-    {
-        id: '3',
-        name: 'Team Phillips',
-        country: 'NL',
-        members: [],
-    },
-    {
-        id: '4',
-        name: 'Team Phillips',
-        country: 'NL',
-        members: [],
-    },
-    {
-        id: '5',
-        name: 'Team Phillips',
-        country: 'NL',
-        members: [],
-    },
-    {
-        id: '6',
-        name: 'Team Phillips',
-        country: 'NL',
-        members: [],
-    },
-    {
-        id: '1',
-        name: 'Team Deloitte',
-        country: 'NL',
-        members: [],
-    },
-    {
-        id: '2',
-        name: 'Team MyCubes',
-        country: 'UA',
-        members: [],
-    },
-    {
-        id: '3',
-        name: 'Team Phillips',
-        country: 'NL',
-        members: [],
-    },
-    {
-        id: '3',
-        name: 'Team Phillips',
-        country: 'NL',
-        members: [],
-    },
-    {
-        id: '3',
-        name: 'Team Phillips',
-        country: 'NL',
-        members: [],
-    },
-    {
-        id: '3',
-        name: 'Team Phillips',
-        country: 'NL',
-        members: [],
-    },
-];
+import { TeamService } from '@team/services/team.service';
+import { Observable, of } from 'rxjs';
 
 @Component({
     selector: 'app-team-list',
@@ -90,6 +15,7 @@ export class TeamListComponent implements OnInit {
     constructor(
         private route: ActivatedRoute,
         private router: Router,
+        private teamService: TeamService,
     ) {}
 
     ngOnInit(): void {
@@ -101,11 +27,7 @@ export class TeamListComponent implements OnInit {
     }
 
     private _getTeams(): void {
-        this.teams$ = of(EMPTY).pipe(
-            delay(3000),
-            switchMap(() => {
-                return of(TEAMS_MOCK);
-            }),
-        );
+        // TODO: Get teams from store
+        this.teams$ = this.teamService.getTeams();
     }
 }

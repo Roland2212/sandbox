@@ -10,6 +10,10 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { EffectsModule } from '@ngrx/effects';
+import { AuthEffect } from '@store/effects/auth/auth.effect';
+import { RouterState, StoreRouterConnectingModule } from '@ngrx/router-store';
+import { reducers } from '@store/reducers/app.reducer';
 
 @NgModule({
     declarations: [
@@ -32,8 +36,20 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
                 deps: [HttpClient],
             },
         }),
-        StoreModule.forRoot({}, {}),
+        StoreModule.forRoot(reducers, {
+            runtimeChecks: {
+                strictStateImmutability: true,
+                strictStateSerializability: true,
+                strictActionImmutability: true,
+                strictActionSerializability: true,
+            },
+        }),
         StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: !isDevMode() }),
+        EffectsModule.forRoot([AuthEffect]),
+        StoreRouterConnectingModule.forRoot({
+            stateKey: 'router',
+            routerState: RouterState.Minimal,
+        }),
     ],
     providers: [],
     bootstrap: [AppComponent],

@@ -5,10 +5,9 @@ import { Credentials } from '@auth/interfaces/credentials.interface';
 import { AuthService } from '@auth/service/auth.service';
 import { Store } from '@ngrx/store';
 import { SubscriptionDirective } from '@shared/directives/subscription.directive';
-import { tap } from 'rxjs';
+import { EMPTY, catchError, finalize, of, switchMap, tap } from 'rxjs';
 import { AppState } from '@store/reducers/app.reducer';
-import { signIn } from '@store/actions/auth.action';
-import { User } from '@auth/interfaces/user.interface';
+import { signIn } from '@store/actions/auth/auth.action';
 
 @Component({
     selector: 'app-auth-view',
@@ -17,9 +16,10 @@ import { User } from '@auth/interfaces/user.interface';
 })
 export class AuthViewComponent extends SubscriptionDirective {
     form = new FormGroup({
-        login: new FormControl('', [Validators.required]),
-        password: new FormControl('', [Validators.required]),
+        login: new FormControl('roland@gmail.com', [Validators.required]),
+        password: new FormControl('123456', [Validators.required]),
     });
+    loading: boolean = false;
 
     constructor(
         private route: ActivatedRoute,
@@ -37,16 +37,37 @@ export class AuthViewComponent extends SubscriptionDirective {
         }
 
         this.addSubscription(
-            this.authService
-                .signIn(this.form.value as Credentials)
+            of(EMPTY)
                 .pipe(
-                    tap((user: User) => {
-                        // eslint-disable-next-line @typescript-eslint/no-unsafe-call
+                    tap(() => {
+                        this.loading = true;
+                    }),
+                    tap(() => {
+                        this.disableFormWhenLoading();
+                    }),
+                    switchMap(() => {
+                        return this.authService.signIn(this.form.value as Credentials);
+                    }),
+                    tap(user => {
                         this.store.dispatch(signIn({ user }));
-                        void this.router.navigate(['..'], { relativeTo: this.route });
+                    }),
+                    finalize(() => {
+                        this.loading = false;
+                    }),
+                    catchError(error => {
+                        this.enableForm();
+                        return of(error);
                     }),
                 )
                 .subscribe(),
         );
+    }
+
+    disableFormWhenLoading(): void {
+        this.form.disable();
+    }
+
+    enableForm(): void {
+        this.form.enable();
     }
 }

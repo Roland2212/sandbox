@@ -1,8 +1,26 @@
-.login-wrapper {
-    display: flex;
-    flex-direction: column;
+@use 'mixins';
+
+.login-container {
     justify-content: center;
     align-items: center;
+
+    @include mixins.flex-column();
+    @include mixins.full-height-width();
+
+    .login-label {
+        @include mixins.flex-column();
+        justify-content: center;
+        align-items: center;
+
+        height: 150px;
+        width: 150px;
+
+        mat-icon {
+            height: auto;
+            width: auto;
+            font-size: 5em;
+        }
+    }
 
     .login-form {
         width: 300px;
@@ -11,6 +29,13 @@
         mat-form-field,
         button {
             width: 100%;
+        }
+
+        .loading-wrapper {
+            display: flex;
+            align-items: center;
+
+            min-height: 32px;
         }
     }
 }

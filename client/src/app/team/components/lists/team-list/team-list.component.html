@@ -1,5 +1,5 @@
 <div class="team-list-container">
-    <ng-container *ngIf="teams$ | loading | async as items">
+    <ng-container *ngIf="teams$ | loadingList | async as items">
         <ng-template [ngIf]="items?.value">
             <mat-list>
                 <mat-list-item

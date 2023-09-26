@@ -23,9 +23,10 @@ const ROUTES: Routes = [
                     });
                 },
             },
+            // TODO: Check redirect path
             {
                 path: '**',
-                redirectTo: 'estimation',
+                redirectTo: 'team',
             },
         ],
     },

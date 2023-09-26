@@ -4,9 +4,9 @@ import { GenericObject } from '@shared/interfaces/generic-object.interface';
 import { Observable, catchError, map, of, startWith } from 'rxjs';
 
 @Pipe({
-    name: 'loading',
+    name: 'loadingList',
 })
-export class LoadingPipe implements PipeTransform {
+export class LoadingListPipe implements PipeTransform {
     transform<T extends GenericObject>(
         value: Observable<T[]>,
     ): Observable<{ loading: boolean; value?: T[]; error?: HttpErrorResponse }> {
