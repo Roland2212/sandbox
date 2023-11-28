@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { MatDialog } from '@angular/material/dialog';
+import { CreateUpdateTeamDialogComponent } from '@team/components/dialogs/create-update-team/create-update-team.component';
 
 @Component({
     selector: 'app-teams',
@@ -7,12 +8,13 @@ import { ActivatedRoute, Router } from '@angular/router';
     styleUrls: ['./teams.component.scss'],
 })
 export class TeamsComponent {
-    constructor(
-        private route: ActivatedRoute,
-        private router: Router,
-    ) {}
+    constructor(private dialog: MatDialog) {}
 
-    onNavigateToCreateTeam(): void {
-        void this.router.navigate(['create'], { relativeTo: this.route });
+    onOpenCreateTeam(): void {
+        this.dialog
+            .open(CreateUpdateTeamDialogComponent, { data: { team: null } })
+            .afterClosed()
+            .pipe()
+            .subscribe();
     }
 }

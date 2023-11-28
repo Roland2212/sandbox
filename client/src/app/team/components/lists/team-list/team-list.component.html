@@ -1,25 +1,26 @@
 <div class="team-list-container">
-    <ng-container *ngIf="teams$ | loadingList | async as items">
-        <ng-template [ngIf]="items?.value">
+    <!-- TODO: Add cards ui  -->
+    <ng-container *ngIf="teams$ | async as items">
+        <ng-template [ngIf]="items">
             <mat-list>
                 <mat-list-item
                     class="list-item"
-                    *ngFor="let team of items.value"
+                    *ngFor="let team of items"
                     matRipple
-                    (click)="onNavigateToEditTeam(team.id)">
+                    (click)="onOpenUpdateTeam(team)">
                     <mat-icon matListItemIcon>groups</mat-icon>
                     <div matListItemTitle>{{ team.name }}</div>
                     <div matListItemLine>{{ 'team.team_members' | translate }}: {{ team.members.length }}</div>
                 </mat-list-item>
             </mat-list>
         </ng-template>
-        <ng-template [ngIf]="items.loading">
+        <ng-template [ngIf]="isLoading">
             <app-list-loading
                 icon="groups"
                 [itemsLength]="3">
             </app-list-loading>
         </ng-template>
-        <ng-template [ngIf]="!items?.value?.length && !items.loading">
+        <ng-template [ngIf]="!items?.length && !isLoading">
             <app-empty-data
                 icon="groups"
                 text="No teams created yet">

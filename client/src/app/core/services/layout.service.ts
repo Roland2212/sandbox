@@ -18,7 +18,7 @@ export class LayoutService implements OnDestroy {
         [Breakpoints.XLarge, LayoutTypes.DESKTOP],
     ]);
 
-    get isMobile(): Observable<boolean> {
+    get isMobile$(): Observable<boolean> {
         return this._currentLayoutType$.pipe(
             map(layoutType => {
                 return layoutType === LayoutTypes.MOBILE;
@@ -26,7 +26,7 @@ export class LayoutService implements OnDestroy {
         );
     }
 
-    get isTablet(): Observable<boolean> {
+    get isTablet$(): Observable<boolean> {
         return this._currentLayoutType$.pipe(
             map(layoutType => {
                 return layoutType === LayoutTypes.TABLET;
@@ -34,7 +34,7 @@ export class LayoutService implements OnDestroy {
         );
     }
 
-    get isDesktop(): Observable<boolean> {
+    get isDesktop$(): Observable<boolean> {
         return this._currentLayoutType$.pipe(
             map(layoutType => {
                 return layoutType === LayoutTypes.DESKTOP;

@@ -18,7 +18,7 @@ import { signOut } from '@store/actions/auth/auth.action';
 })
 export class NavigationComponent {
     navigationItems: NavigationItem[] = NAVIGATION_ITEMS;
-    isMobileLayout$: Observable<boolean> = this.layoutService.isMobile;
+    isMobileLayout$: Observable<boolean> = this.layoutService.isMobile$;
 
     constructor(
         private dialog: MatDialog,

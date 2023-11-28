@@ -4,11 +4,11 @@ import { Team } from '@team/interfaces/team.interface';
 import { TeamService } from '@team/services/team.service';
 import { Observable } from 'rxjs';
 
-export const TeamsResolver: ResolveFn<Team[]> = (
+export const TeamsResolver: ResolveFn<Observable<Team[]>> = (
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot,
 ): Observable<Team[]> => {
     const teamService = inject(TeamService);
 
-    return teamService.getTeams();
+    return teamService.getAllTeams();
 };

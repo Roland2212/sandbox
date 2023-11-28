@@ -1,84 +1,9 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { AbstractControl, FormGroup } from '@angular/forms';
-import { Member, Team } from '@team/interfaces/team.interface';
+import { Team } from '@team/interfaces/team.interface';
+import { TEAM_LIST_MOCK } from '@team/mocks/team.mock';
 import { BehaviorSubject, EMPTY, Observable, delay, of, switchMap } from 'rxjs';
-
-// TODO: Remove Mock
-const TEAMS_MOCK: Team[] = [
-    {
-        id: '1',
-        name: 'Team Deloitte',
-        country: 'NL',
-        members: [],
-    },
-    {
-        id: '2',
-        name: 'Team MyCubes',
-        country: 'UA',
-        members: [],
-    },
-    {
-        id: '3',
-        name: 'Team Phillips',
-        country: 'NL',
-        members: [],
-    },
-    {
-        id: '4',
-        name: 'Team Phillips',
-        country: 'NL',
-        members: [],
-    },
-    {
-        id: '5',
-        name: 'Team Phillips',
-        country: 'NL',
-        members: [],
-    },
-    {
-        id: '6',
-        name: 'Team Phillips',
-        country: 'NL',
-        members: [],
-    },
-    {
-        id: '1',
-        name: 'Team Deloitte',
-        country: 'NL',
-        members: [],
-    },
-    {
-        id: '2',
-        name: 'Team MyCubes',
-        country: 'UA',
-        members: [],
-    },
-    {
-        id: '3',
-        name: 'Team Phillips',
-        country: 'NL',
-        members: [],
-    },
-    {
-        id: '3',
-        name: 'Team Phillips',
-        country: 'NL',
-        members: [],
-    },
-    {
-        id: '3',
-        name: 'Team Phillips',
-        country: 'NL',
-        members: [],
-    },
-    {
-        id: '3',
-        name: 'Team Phillips',
-        country: 'NL',
-        members: [],
-    },
-];
 
 @Injectable()
 export class TeamService {
@@ -104,23 +29,37 @@ export class TeamService {
         this.teamForm.setControl(name, control);
     }
 
-    getTeams(): Observable<Team[]> {
+    prefillTeamForm(value: Team): void {
+        this.teamForm.patchValue(value);
+    }
+
+    getAllTeams(): Observable<Team[]> {
         // TODO: Add http call
 
         // return this.http.get<Team[]>(`api/teams`, {});
         return of(EMPTY).pipe(
             delay(3000),
             switchMap(() => {
-                return of(TEAMS_MOCK);
+                return of(TEAM_LIST_MOCK);
             }),
         );
     }
 
-    getTeam(id: string): Observable<Team> {
-        return this.http.get<Team>(`api/teams/${id}`, {});
-    }
+    // getTeam(id: string): Observable<Team> {
 
-    geTeamMembers(id: string): Observable<Member[]> {
-        return this.http.get<Member[]>(`api/teams/${id}/members`, {});
-    }
+    // return this.http.get<Team>(`api/teams/${id}`, {});
+
+    // return of(EMPTY).pipe(
+
+    //     delay(3000),
+
+    //     switchMap(() => {
+
+    //         return of(TEAM_LIST_MOCK[0]);
+
+    //     }),
+
+    // );
+
+    // }
 }
