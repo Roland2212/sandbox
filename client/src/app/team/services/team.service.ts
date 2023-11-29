@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { AbstractControl, FormGroup } from '@angular/forms';
+import { StatusResponse } from '@shared/interfaces/status-response.interface';
 import { Team } from '@team/interfaces/team.interface';
 import { TEAM_LIST_MOCK } from '@team/mocks/team.mock';
 import { BehaviorSubject, EMPTY, Observable, delay, of, switchMap } from 'rxjs';
@@ -38,28 +39,30 @@ export class TeamService {
 
         // return this.http.get<Team[]>(`api/teams`, {});
         return of(EMPTY).pipe(
-            delay(3000),
+            delay(2000),
             switchMap(() => {
                 return of(TEAM_LIST_MOCK);
             }),
         );
     }
 
-    // getTeam(id: string): Observable<Team> {
+    createTeam(team: Team): Observable<StatusResponse> {
+        // TODO: Add http call
+        return of(EMPTY).pipe(
+            delay(2000),
+            switchMap(() => {
+                return of({ status: 'OK' });
+            }),
+        );
+    }
 
-    // return this.http.get<Team>(`api/teams/${id}`, {});
-
-    // return of(EMPTY).pipe(
-
-    //     delay(3000),
-
-    //     switchMap(() => {
-
-    //         return of(TEAM_LIST_MOCK[0]);
-
-    //     }),
-
-    // );
-
-    // }
+    updateTeam(team: Team): Observable<StatusResponse> {
+        // TODO: Add http call
+        return of(EMPTY).pipe(
+            delay(2000),
+            switchMap(() => {
+                return of({ status: 'OK' });
+            }),
+        );
+    }
 }

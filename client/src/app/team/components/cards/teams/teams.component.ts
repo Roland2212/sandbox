@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { CreateUpdateTeamDialogComponent } from '@team/components/dialogs/create-update-team/create-update-team.component';
+import { filter } from 'rxjs';
 
 @Component({
     selector: 'app-teams',
@@ -14,7 +15,11 @@ export class TeamsComponent {
         this.dialog
             .open(CreateUpdateTeamDialogComponent, { data: { team: null } })
             .afterClosed()
-            .pipe()
+            .pipe(
+                filter(team => {
+                    return !!team;
+                }),
+            )
             .subscribe();
     }
 }

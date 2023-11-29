@@ -1,0 +1,19 @@
+@use '../media';
+
+@include media.mobile {
+    mat-dialog-container {
+        width: 100vw !important;
+    }
+}
+
+@include media.tablet {
+    mat-dialog-container {
+        width: 80vw !important;
+    }
+}
+
+@include media.desktop {
+    mat-dialog-container {
+        width: 40vw !important;
+    }
+}

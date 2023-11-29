@@ -52,18 +52,19 @@ export class CreateUpdateTeamDialogComponent implements OnInit {
             this.form.markAllAsTouched();
             return;
         }
-
-        const { team } = this.dialogData;
-        const { id } = this.form.value;
+        const teamValue = this.form.value;
         const members = this._getMembersValues();
-        const isUpdate = !!team;
+        const isUpdate = !!this.dialogData.team;
 
         if (!isUpdate) {
-            this.store.dispatch(createTeam({ team: { id: uid(), ...this.form.value, members } as Team }));
-            return;
+            this.store.dispatch(createTeam({ team: { ...teamValue, id: uid(), members } as Team }));
+        } else {
+            this.store.dispatch(
+                updateTeam({ team: { id: teamValue.id, changes: { ...teamValue, members } } as Update<Team> }),
+            );
         }
 
-        this.store.dispatch(updateTeam({ team: { id, changes: { ...this.form.value, members } } as Update<Team> }));
+        this.dialogRef.close(teamValue);
     }
 
     private _prefillForm(): void {

@@ -5,6 +5,7 @@
 @use 'styles/typography';
 @use 'styles/variables';
 @use 'styles/mixins';
+@use 'styles/media';
 
 @use 'styles/components/view';
 @use 'styles/components/card';
@@ -12,6 +13,7 @@
 @use 'styles/components/form';
 @use 'styles/components/button';
 @use 'styles/components/title';
+@use 'styles/components/dialog';
 
 @include mat.core();
 
