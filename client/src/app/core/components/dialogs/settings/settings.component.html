@@ -1,11 +1,11 @@
 <div class="settings-dialog-container">
-    <h2 mat-dialog-title>{{ 'core.settings' | translate }}</h2>
+    <h2 mat-dialog-title>{{ 'core.text.settings' | translate }}</h2>
     <mat-dialog-content>
         <form
             class="form grid-1"
             [formGroup]="form">
             <mat-form-field>
-                <mat-label>{{ 'core.language' | translate }}</mat-label>
+                <mat-label>{{ 'core.text.language' | translate }}</mat-label>
                 <mat-select formControlName="language">
                     <mat-option
                         *ngFor="let option of languagesOptions"
@@ -20,14 +20,14 @@
         <button
             mat-button
             mat-dialog-close>
-            {{ 'buttons.cancel' | translate }}
+            {{ 'common.button.cancel' | translate }}
         </button>
         <button
             mat-button
             color="accent"
             (click)="onSaveSettings()"
             cdkFocusInitial>
-            {{ 'buttons.save' | translate }}
+            {{ 'common.button.save' | translate }}
         </button>
     </mat-dialog-actions>
 </div>

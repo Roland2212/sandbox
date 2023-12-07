@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 
 @Component({
-    selector: 'app-overview',
+    selector: 'app-estimation-overview',
     templateUrl: './overview.component.html',
     styleUrls: ['./overview.component.scss'],
 })

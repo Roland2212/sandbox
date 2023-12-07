@@ -7,7 +7,7 @@ import { ActivatedRoute, Router } from '@angular/router';
     styleUrls: ['./back-button.component.scss'],
 })
 export class BackButtonComponent {
-    @Input() label: string = 'buttons.back';
+    @Input() label: string = 'common.button.back';
     @Input() icon: string = 'arrow_back';
     @Input() path: string[] = ['..'];
 

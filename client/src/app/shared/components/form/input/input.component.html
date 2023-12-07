@@ -1,0 +1,17 @@
+<mat-form-field [ngClass]="classList">
+    <mat-label>{{ label }}</mat-label>
+    <input
+        matInput
+        [placeholder]="placeholder"
+        [formControl]="control" />
+    <mat-error *ngIf="control.hasError('required')"> Field is required </mat-error>
+    <mat-error *ngIf="control.hasError('email')"> Invalid email format </mat-error>
+    <mat-error *ngIf="control.hasError('minlength')">
+        Min value required: {{ control.errors?.['minlength'].requiredLength }}, actual value:
+        {{ control.errors?.['minlength'].actualLength }}
+    </mat-error>
+    <mat-error *ngIf="control.hasError('maxlength')">
+        Max value required: {{ control.errors?.['maxlength'].requiredLength }}, actual value:
+        {{ control.errors?.['maxlength'].actualLength }}
+    </mat-error>
+</mat-form-field>

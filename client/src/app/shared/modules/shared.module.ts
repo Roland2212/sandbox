@@ -9,6 +9,10 @@ import { ListLoadingComponent } from '@shared/components/list-loading/list-loadi
 import { HttpClientModule } from '@angular/common/http';
 import { EmptyDataComponent } from '@shared/components/empty-data/empty-data.component';
 import { LoadingListPipe } from '@shared/pipes/loading-list.pipe';
+import { SharedInputComponent } from '@shared/components/form/input/input.component';
+import { SharedDateComponent } from '@shared/components/form/date/date.component';
+import { SharedTextareaComponent } from '@shared/components/form/textarea/textarea.component';
+import { LoadingPipe } from '@shared/pipes/loading.pipe';
 
 @NgModule({
     declarations: [
@@ -16,9 +20,13 @@ import { LoadingListPipe } from '@shared/pipes/loading-list.pipe';
         BackButtonComponent,
         ListLoadingComponent,
         EmptyDataComponent,
+        SharedInputComponent,
+        SharedDateComponent,
+        SharedTextareaComponent,
         // Pipes
         IsFalsePipe,
         LoadingListPipe,
+        LoadingPipe,
     ],
     imports: [ReactiveFormsModule, CommonModule, MaterialModule, HttpClientModule, TranslateModule],
     exports: [
@@ -32,9 +40,13 @@ import { LoadingListPipe } from '@shared/pipes/loading-list.pipe';
         BackButtonComponent,
         ListLoadingComponent,
         EmptyDataComponent,
+        SharedInputComponent,
+        SharedDateComponent,
+        SharedTextareaComponent,
         // Pipes
         IsFalsePipe,
         LoadingListPipe,
+        LoadingPipe,
     ],
     providers: [],
 })

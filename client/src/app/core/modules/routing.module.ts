@@ -16,7 +16,7 @@ const ROUTES: Routes = [
                 },
             },
             {
-                path: 'estimation',
+                path: 'estimation/teams',
                 loadChildren: () => {
                     return import('@estimation/modules/estimation.module').then(m => {
                         return m.EstimationModule;

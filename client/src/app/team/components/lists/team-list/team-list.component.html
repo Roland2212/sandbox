@@ -10,7 +10,7 @@
                     (click)="onOpenUpdateTeam(team)">
                     <mat-icon matListItemIcon>groups</mat-icon>
                     <div matListItemTitle>{{ team.name }}</div>
-                    <div matListItemLine>{{ 'team.team_members' | translate }}: {{ team.members.length }}</div>
+                    <div matListItemLine>{{ 'team.text.team_members' | translate }}: {{ team.members.length }}</div>
                 </mat-list-item>
             </mat-list>
         </ng-template>
@@ -21,10 +21,7 @@
             </app-list-loading>
         </ng-template>
         <ng-template [ngIf]="!items?.length && !isLoading">
-            <app-empty-data
-                icon="groups"
-                text="No teams created yet">
-            </app-empty-data>
+            <app-empty-data icon="groups"></app-empty-data>
         </ng-template>
     </ng-container>
 </div>

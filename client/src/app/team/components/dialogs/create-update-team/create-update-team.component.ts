@@ -6,9 +6,10 @@ import { Store } from '@ngrx/store';
 import { uid } from '@shared/helpers/uid.helper';
 import { createTeam, updateTeam } from '@store/actions/team/team.action';
 import { Member, Team } from '@team/interfaces/team.interface';
+import { TeamService } from '@team/services/team.service';
 
 @Component({
-    selector: 'app-create-update-team',
+    selector: 'app-team-create-update-team',
     templateUrl: './create-update-team.component.html',
     styleUrls: ['./create-update-team.component.scss'],
 })
@@ -29,6 +30,7 @@ export class CreateUpdateTeamDialogComponent implements OnInit {
         @Inject(MAT_DIALOG_DATA) private dialogData: { team: Team | null },
         private dialogRef: MatDialogRef<CreateUpdateTeamDialogComponent>,
         private store: Store,
+        private teamService: TeamService,
     ) {}
 
     ngOnInit(): void {
@@ -36,7 +38,7 @@ export class CreateUpdateTeamDialogComponent implements OnInit {
     }
 
     addTeamMember(): void {
-        this._generateMemberForm(null);
+        this._generateMemberForm();
     }
 
     removeTeamMember(formIndex: number): void {
@@ -85,7 +87,7 @@ export class CreateUpdateTeamDialogComponent implements OnInit {
         });
     }
 
-    private _generateMemberForm(member: Member | null): void {
+    private _generateMemberForm(member: Member | null = null): void {
         const memberForm = new FormGroup({
             id: new FormControl(member?.id || uid()),
             name: new FormControl(member?.name || ''),

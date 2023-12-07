@@ -1,34 +1,53 @@
 {
-  "common": {},
-  "buttons": {
-    "cancel": "Скасувати",
-    "save": "Зберегти",
-    "back": "Назад",
-    "create": "Створити",
-    "update": "Редагувати",
-    "add_members": "Додати члена",
-    "create_team": "Створити команду"
+  "common": {
+    "text": {},
+    "button": {
+      "cancel": "Скасувати",
+      "save": "Зберегти",
+      "back": "Назад",
+      "create": "Створити",
+      "update": "Редагувати"
+    },
+    "empty": {
+      "default": "Немає даних"
+    }
   },
   "core": {
-    "language": "Мова",
-    "settings": "Налаштування",
-    "estimation": "Підрахунок",
-    "team": "Команда"
+    "text": {
+      "language": "Мова",
+      "settings": "Налаштування"
+    },
+    "button": {
+      "estimation": "Підрахунок",
+      "team": "Команда"
+    }
   },
   "auth": {
-    "login": "Логін",
-    "password": "Пароль",
-    "sign_in": "Вхід"
+    "text": {
+      "login": "Логін",
+      "password": "Пароль"
+    },
+    "button": {
+      "sign_in": "Вхід"
+    }
   },
   "team": {
-    "teams": "Команди",
-    "create_team": "Створити команду",
-    "team_name": "Назва команди",
-    "country": "Країна",
-    "information": "Інформація",
-    "team_members": "Члени команди",
-    "name": "Ім`я",
-    "surname": "Прізвище",
-    "role": "Посада"
+    "text": {
+      "teams": "Команди",
+      "create_team": "Створити команду",
+      "update_team": "Редагувати команду",
+      "team_name": "Назва команди",
+      "country": "Країна",
+      "information": "Інформація",
+      "team_members": "Члени команди",
+      "team_member": "Член команди",
+      "name": "Ім`я",
+      "surname": "Прізвище",
+      "role": "Посада"
+    },
+    "button": {
+      "add_members": "Додати члена",
+      "create_team": "Створити команду"
+    }
   }
 }

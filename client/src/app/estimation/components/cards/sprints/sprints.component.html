@@ -1,0 +1,21 @@
+<div class="sprints-container card-container">
+    <mat-card>
+        <mat-card-header>
+            <mat-card-title>
+                <h3>{{ 'estimation.text.sprints' | translate }}</h3>
+            </mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+            <app-estimation-sprint-list></app-estimation-sprint-list>
+        </mat-card-content>
+        <mat-card-actions align="end">
+            <button
+                mat-button
+                color="primary"
+                (click)="onNavigateToCreateSprint()">
+                <mat-icon>analytics</mat-icon>
+                <span>{{ 'common.button.create' | translate }}</span>
+            </button>
+        </mat-card-actions>
+    </mat-card>
+</div>

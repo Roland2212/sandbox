@@ -8,5 +8,5 @@ import { Component, Input } from '@angular/core';
 export class EmptyDataComponent {
     @Input() icon: string = '';
     @Input() iconColor: string = 'primary';
-    @Input() text: string = 'No data';
+    @Input() text_key: string = 'common.empty.default';
 }

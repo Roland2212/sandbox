@@ -14,6 +14,7 @@ import { EffectsModule } from '@ngrx/effects';
 import { AuthEffect } from '@store/effects/auth/auth.effect';
 import { RouterState, StoreRouterConnectingModule } from '@ngrx/router-store';
 import { reducers } from '@store/reducers/app.reducer';
+import { EntityDataModule } from '@ngrx/data';
 
 @NgModule({
     declarations: [
@@ -46,6 +47,7 @@ import { reducers } from '@store/reducers/app.reducer';
         }),
         StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: !isDevMode() }),
         EffectsModule.forRoot([AuthEffect]),
+        EntityDataModule.forRoot({}),
         StoreRouterConnectingModule.forRoot({
             stateKey: 'router',
             routerState: RouterState.Minimal,

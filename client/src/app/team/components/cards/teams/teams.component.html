@@ -2,11 +2,11 @@
     <mat-card>
         <mat-card-header>
             <mat-card-title>
-                <h3>{{ 'team.teams' | translate }}</h3>
+                <h3>{{ 'team.text.teams' | translate }}</h3>
             </mat-card-title>
         </mat-card-header>
         <mat-card-content>
-            <app-team-list></app-team-list>
+            <app-team-team-list></app-team-team-list>
         </mat-card-content>
         <mat-card-actions align="end">
             <button
@@ -14,7 +14,7 @@
                 color="primary"
                 (click)="onOpenCreateTeam()">
                 <mat-icon>group_add</mat-icon>
-                <span>{{ 'buttons.create' | translate }}</span>
+                <span>{{ 'common.button.create' | translate }}</span>
             </button>
         </mat-card-actions>
     </mat-card>

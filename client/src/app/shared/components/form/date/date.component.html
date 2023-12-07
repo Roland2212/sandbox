@@ -1,0 +1,20 @@
+<mat-form-field [ngClass]="classList">
+    <mat-label>{{ label }}</mat-label>
+    <input
+        matInput
+        [matDatepicker]="datePicker"
+        [formControl]="control"
+        [matDatepickerFilter]="filterFn"
+        cyId="date" />
+    <mat-hint>{{ hint }}</mat-hint>
+    <mat-datepicker-toggle
+        matSuffix
+        [for]="datePicker">
+    </mat-datepicker-toggle>
+    <mat-datepicker #datePicker></mat-datepicker>
+    <mat-error *ngIf="control.hasError('matDatepickerParse')"> Invalid format of the date </mat-error>
+    <mat-error *ngIf="control.hasError('required')"> Date is required </mat-error>
+    <mat-error *ngIf="control.hasError('matDatepickerFilter')">
+        {{ filterError }}
+    </mat-error>
+</mat-form-field>

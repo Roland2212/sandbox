@@ -6,7 +6,7 @@
         class="login-form"
         [formGroup]="form">
         <mat-form-field>
-            <mat-label>{{ 'auth.login' | translate }}</mat-label>
+            <mat-label>{{ 'auth.text.login' | translate }}</mat-label>
             <mat-icon
                 color="primary"
                 matPrefix>
@@ -17,7 +17,7 @@
                 formControlName="login" />
         </mat-form-field>
         <mat-form-field>
-            <mat-label>{{ 'auth.password' | translate }}</mat-label>
+            <mat-label>{{ 'auth.text.password' | translate }}</mat-label>
             <mat-icon
                 color="primary"
                 matPrefix>
@@ -35,7 +35,7 @@
             color="primary"
             (click)="signIn()">
             <mat-icon>login_outline</mat-icon>
-            {{ 'auth.sign_in' | translate }}
+            {{ 'auth.button.sign_in' | translate }}
         </button>
 
         <ng-template #loadingTemplate>

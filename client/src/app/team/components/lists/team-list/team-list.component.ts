@@ -10,7 +10,7 @@ import { Team } from '@team/interfaces/team.interface';
 import { Observable, of, tap } from 'rxjs';
 
 @Component({
-    selector: 'app-team-list',
+    selector: 'app-team-team-list',
     templateUrl: './team-list.component.html',
     styleUrls: ['./team-list.component.scss'],
 })

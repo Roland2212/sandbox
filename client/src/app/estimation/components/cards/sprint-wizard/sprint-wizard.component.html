@@ -1,0 +1,131 @@
+<div class="sprint-wizard-container card-container">
+    <mat-card>
+        <mat-card-header>
+            <mat-card-title>
+                <h3>{{ 'estimation.text.create_sprint' | translate }}</h3>
+            </mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+            <mat-stepper
+                linear
+                #stepper
+                class="stepper-container">
+                <mat-step [stepControl]="sprintForm">
+                    <ng-template matStepLabel>Sprint information</ng-template>
+                    <form
+                        class="form grid-1"
+                        [formGroup]="sprintForm">
+                        <app-shared-input
+                            [form]="sprintForm"
+                            [control]="nameControl"
+                            name="name"
+                            label="Sprint name"
+                            [classList]="['field']">
+                        </app-shared-input>
+
+                        <app-shared-date
+                            [form]="sprintForm"
+                            [control]="startDateControl"
+                            name="startDate"
+                            label="Start date"
+                            hint="mm/dd/yyyy"
+                            [classList]="['field']">
+                        </app-shared-date>
+
+                        <app-shared-date
+                            [form]="sprintForm"
+                            [control]="endDateControl"
+                            name="endDate"
+                            label="End date"
+                            hint="mm/dd/yyyy"
+                            [classList]="['field']">
+                        </app-shared-date>
+
+                        <app-shared-textarea
+                            [form]="sprintForm"
+                            [control]="descriptionControl"
+                            name="description"
+                            label="Sprint goal"
+                            [classList]="['field']">
+                        </app-shared-textarea>
+                    </form>
+                    <div class="actions">
+                        <button
+                            mat-button
+                            matStepperNext>
+                            Next
+                        </button>
+                    </div>
+                </mat-step>
+                <mat-step>
+                    <ng-template matStepLabel>Team working days</ng-template>
+                    <ng-container *ngIf="team$ | loading | async as item">
+                        <ng-template [ngIf]="item.value">
+                            <div *ngFor="let member of item.value.members">
+                                {{ member.name }}
+                            </div>
+                        </ng-template>
+                        <ng-template [ngIf]="item.loading"> loading... </ng-template>
+                        <ng-template [ngIf]="!item?.value && !item.loading">
+                            <app-empty-data icon="person"></app-empty-data>
+                        </ng-template>
+                    </ng-container>
+                    <div class="actions">
+                        <button
+                            mat-button
+                            matStepperPrevious>
+                            Back
+                        </button>
+                        <button
+                            mat-button
+                            matStepperNext>
+                            Next
+                        </button>
+                    </div>
+                </mat-step>
+                <mat-step [stepControl]="sprintCapacityForm">
+                    <ng-template matStepLabel>Sprint capacity</ng-template>
+                    <form
+                        class="form grid-1"
+                        [formGroup]="sprintCapacityForm">
+                        <app-shared-input
+                            [form]="sprintCapacityForm"
+                            [control]="spritCapacityControl"
+                            name="spritCapacity"
+                            label="Sprint Capacity (Days)"
+                            [classList]="['field']">
+                        </app-shared-input>
+                    </form>
+                    <div class="actions">
+                        <button
+                            mat-button
+                            matStepperPrevious>
+                            Back
+                        </button>
+                        <button
+                            mat-button
+                            matStepperNext>
+                            Next
+                        </button>
+                    </div>
+                </mat-step>
+                <mat-step>
+                    <ng-template matStepLabel>Summary</ng-template>
+                    <div class="actions">
+                        <button
+                            mat-button
+                            matStepperPrevious>
+                            Back
+                        </button>
+                        <button
+                            mat-button
+                            (click)="stepper.reset()">
+                            Reset
+                        </button>
+                        <button mat-button>Create Sprint</button>
+                    </div>
+                </mat-step>
+            </mat-stepper>
+        </mat-card-content>
+    </mat-card>
+</div>

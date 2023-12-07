@@ -1,34 +1,60 @@
 {
-  "common": {},
-  "buttons": {
-    "cancel": "Cancel",
-    "save": "Save",
-    "back": "Back",
-    "create": "Create",
-    "update": "Update",
-    "add_members": "Add members",
-    "create_team": "Create team"
+  "common": {
+    "text": {},
+    "button": {
+      "cancel": "Cancel",
+      "save": "Save",
+      "back": "Back",
+      "create": "Create",
+      "update": "Update"
+    },
+    "empty": {
+      "default": "No data"
+    }
   },
   "core": {
-    "language": "Language",
-    "settings": "Settings",
-    "estimation": "Estimation",
-    "team": "Team"
+    "text": {
+      "language": "Language",
+      "settings": "Settings"
+    },
+    "button": {
+      "estimation": "Estimation",
+      "team": "Team"
+    }
   },
   "auth": {
-    "login": "Login",
-    "password": "Password",
-    "sign_in": "Sign In"
+    "text": {
+      "login": "Login",
+      "password": "Password"
+    },
+    "button": {
+      "sign_in": "Sign In"
+    }
   },
   "team": {
-    "teams": "Teams",
-    "create_team": "Create team",
-    "team_name": "Team name",
-    "country": "Country",
-    "information": "Information",
-    "team_members": "Team members",
-    "name": "Name",
-    "surname": "Surname",
-    "role": "Role"
+    "text": {
+      "teams": "Teams",
+      "create_team": "Create team",
+      "update_team": "Update team",
+      "team_name": "Team name",
+      "country": "Country",
+      "information": "Information",
+      "team_members": "Team members",
+      "team_member": "Team member",
+      "name": "Name",
+      "surname": "Surname",
+      "role": "Role"
+    },
+    "button": {
+      "add_members": "Add members",
+      "create_team": "Create team"
+    }
+  },
+  "estimation": {
+    "text": {
+      "sprints": "Sprints",
+      "create_sprint": "Create sprint"
+    },
+    "button": {}
   }
 }

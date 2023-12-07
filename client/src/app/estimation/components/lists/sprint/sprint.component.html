@@ -1,0 +1,25 @@
+<div class="team-list-container">
+    <ng-container *ngIf="sprints$ | loadingList | async as items">
+        <ng-template [ngIf]="items.value">
+            <mat-list>
+                <mat-list-item
+                    class="list-item"
+                    *ngFor="let sprint of items.value"
+                    matRipple>
+                    <mat-icon matListItemIcon>analytics</mat-icon>
+                    <div matListItemTitle>{{ sprint.name }}</div>
+                    <div matListItemLine>{{ sprint.startDate }} - {{ sprint.endDate }}</div>
+                </mat-list-item>
+            </mat-list>
+        </ng-template>
+        <ng-template [ngIf]="items.loading">
+            <app-list-loading
+                icon="analytics"
+                [itemsLength]="3">
+            </app-list-loading>
+        </ng-template>
+        <ng-template [ngIf]="!items?.value?.length && !items.loading">
+            <app-empty-data icon="analytics"></app-empty-data>
+        </ng-template>
+    </ng-container>
+</div>

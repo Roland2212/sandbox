@@ -4,11 +4,11 @@ export const NAVIGATION_ITEMS: NavigationItem[] = [
     {
         path: '/team',
         icon: 'groups',
-        label: 'core.team',
+        label: 'core.button.team',
     },
     {
-        path: '/estimation',
+        path: '/estimation/teams',
         icon: 'timeline',
-        label: 'core.estimation',
+        label: 'core.button.estimation',
     },
 ];

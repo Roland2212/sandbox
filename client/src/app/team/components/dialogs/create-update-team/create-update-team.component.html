@@ -1,17 +1,17 @@
 <div class="create-update-team-dialog-container">
-    <h1 mat-dialog-title>{{ 'buttons.' + dialogState | translate }} {{ 'core.team' | translate }}</h1>
+    <h1 mat-dialog-title>{{ 'team.' + dialogState + '_team' | translate }}</h1>
     <mat-dialog-content>
         <form
             class="form grid-1"
             [formGroup]="form">
             <mat-form-field>
-                <mat-label>{{ 'team.team_name' | translate }}</mat-label>
+                <mat-label>{{ 'team.text.team_name' | translate }}</mat-label>
                 <input
                     matInput
                     formControlName="name" />
             </mat-form-field>
             <mat-form-field>
-                <mat-label>{{ 'team.country' | translate }}</mat-label>
+                <mat-label>{{ 'team.text.country' | translate }}</mat-label>
                 <input
                     matInput
                     formControlName="country" />
@@ -20,7 +20,7 @@
 
         <div class="title-container">
             <div class="title">
-                <h3>Members</h3>
+                <h3>{{ 'team.text.team_members' | translate }}</h3>
             </div>
             <div class="actions">
                 <button
@@ -34,7 +34,7 @@
         <div *ngFor="let member of membersForms; index as i">
             <div class="title-container">
                 <div class="title">
-                    <h3>Member {{ i + 1 }}</h3>
+                    <h3>{{ 'team.text.member' | translate }} {{ i + 1 }}</h3>
                 </div>
                 <div class="actions">
                     <button
@@ -48,19 +48,19 @@
                 class="form grid-1"
                 [formGroup]="member">
                 <mat-form-field>
-                    <mat-label>{{ 'team.name' | translate }}</mat-label>
+                    <mat-label>{{ 'team.text.name' | translate }}</mat-label>
                     <input
                         matInput
                         formControlName="name" />
                 </mat-form-field>
                 <mat-form-field>
-                    <mat-label>{{ 'team.surname' | translate }}</mat-label>
+                    <mat-label>{{ 'team.text.surname' | translate }}</mat-label>
                     <input
                         matInput
                         formControlName="surname" />
                 </mat-form-field>
                 <mat-form-field>
-                    <mat-label>{{ 'team.role' | translate }}</mat-label>
+                    <mat-label>{{ 'team.text.role' | translate }}</mat-label>
                     <input
                         matInput
                         formControlName="role" />
@@ -72,14 +72,14 @@
         <button
             mat-button
             (click)="onClose()">
-            {{ 'buttons.cancel' | translate }}
+            {{ 'common.button.cancel' | translate }}
         </button>
         <button
             mat-button
             color="accent"
             (click)="onCreateUpdateTeam()"
             cdkFocusInitial>
-            {{ 'buttons.save' | translate }}
+            {{ 'common.button.save' | translate }}
         </button>
     </mat-dialog-actions>
 </div>

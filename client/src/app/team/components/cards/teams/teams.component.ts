@@ -4,7 +4,7 @@ import { CreateUpdateTeamDialogComponent } from '@team/components/dialogs/create
 import { filter } from 'rxjs';
 
 @Component({
-    selector: 'app-teams',
+    selector: 'app-team-teams',
     templateUrl: './teams.component.html',
     styleUrls: ['./teams.component.scss'],
 })
