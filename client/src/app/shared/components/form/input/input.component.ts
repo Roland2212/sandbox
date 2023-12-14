@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, ValidatorFn } from '@angular/forms';
 
 @Component({
     selector: 'app-shared-input',
@@ -12,6 +12,7 @@ export class SharedInputComponent implements OnInit {
     @Input() label: string = 'Input';
     @Input() placeholder: string = '';
     @Input() classList: string[] = [];
+    @Input() validators: ValidatorFn[] = [];
 
     ngOnInit() {
         this._setControlToForm();
@@ -19,5 +20,9 @@ export class SharedInputComponent implements OnInit {
 
     private _setControlToForm() {
         this.form?.setControl(this.name, this.control);
+        if (this.validators.length) {
+            this.control.setValidators(this.validators);
+            this.control.updateValueAndValidity();
+        }
     }
 }

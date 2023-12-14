@@ -1,4 +1,11 @@
 <div class="sprints-container card-container">
+    <!-- TODO: Test mapper -->
+    <mat-card>
+        <app-shared-details-list
+            [item]="item"
+            [mapper]="mapper">
+        </app-shared-details-list>
+    </mat-card>
     <mat-card>
         <mat-card-header>
             <mat-card-title>
@@ -10,8 +17,8 @@
         </mat-card-content>
         <mat-card-actions align="end">
             <button
+                color="accent"
                 mat-button
-                color="primary"
                 (click)="onNavigateToCreateSprint()">
                 <mat-icon>analytics</mat-icon>
                 <span>{{ 'common.button.create' | translate }}</span>

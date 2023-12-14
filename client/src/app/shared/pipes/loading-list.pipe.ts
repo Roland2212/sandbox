@@ -1,13 +1,13 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import { Pipe, PipeTransform } from '@angular/core';
-import { GenericObject } from '@shared/interfaces/generic-object.interface';
+import { SharedGenericObject } from '@shared/interfaces/generic-object.interface';
 import { Observable, catchError, map, of, startWith } from 'rxjs';
 
 @Pipe({
     name: 'loadingList',
 })
-export class LoadingListPipe implements PipeTransform {
-    transform<T extends GenericObject>(
+export class SharedLoadingListPipe implements PipeTransform {
+    transform<T extends SharedGenericObject>(
         value: Observable<T[]>,
     ): Observable<{ loading: boolean; value?: T[]; error?: HttpErrorResponse }> {
         return value.pipe(

@@ -10,7 +10,10 @@ import { User } from '@auth/interfaces/user.interface';
 
 @Component({
     selector: 'app-root',
-    template: `<div class="root-wrapper" [ngClass]="layoutType"><router-outlet></router-outlet></div>`,
+    template: `<div class="root-wrapper" [ngClass]="layoutType">
+        <app-loader></app-loader>
+        <router-outlet></router-outlet>
+    </div>`,
 })
 export class AppComponent extends SubscriptionDirective {
     layoutType: string = '';

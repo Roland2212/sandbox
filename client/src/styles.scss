@@ -6,6 +6,7 @@
 @use 'styles/variables';
 @use 'styles/mixins';
 @use 'styles/media';
+@use 'styles/overrides';
 
 @use 'styles/components/view';
 @use 'styles/components/card';
@@ -15,11 +16,12 @@
 @use 'styles/components/title';
 @use 'styles/components/dialog';
 @use 'styles/components/stepper';
+@use 'styles/components/grid';
 
 @include mat.core();
 
 $primary: mat.define-palette(colors.$primary-palette, 500);
-$accent: mat.define-palette(colors.$accent-palette, 900);
+$accent: mat.define-palette(colors.$accent-palette, 500);
 // $warn: mat.define-palette(colors.$warn-palette, 500);
 $typography: typography.$typography-config;
 $density: -1;

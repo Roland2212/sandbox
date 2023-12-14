@@ -1,0 +1,28 @@
+<div class="details-list-container">
+    <ng-container *ngIf="item$ | async as item">
+        <div
+            class="details-list"
+            [ngClass]="'grid-' + columnsLength"
+            *ngIf="item | details: mapper as details">
+            <app-shared-details-item
+                *ngFor="let detail of details"
+                [icon]="detail.icon"
+                [label]="detail.label"
+                [value]="detail.value">
+            </app-shared-details-item>
+        </div>
+    </ng-container>
+    <ng-container *ngIf="item">
+        <div
+            class="details-list"
+            [ngClass]="'grid-' + columnsLength"
+            *ngIf="item | details: mapper as details">
+            <app-shared-details-item
+                *ngFor="let detail of details"
+                [icon]="detail.icon"
+                [label]="detail.label"
+                [value]="detail.value">
+            </app-shared-details-item>
+        </div>
+    </ng-container>
+</div>

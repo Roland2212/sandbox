@@ -1,0 +1,8 @@
+@use 'mixins';
+
+:host {
+    .create-sprint-container {
+        @include mixins.flex-column();
+        @include mixins.full-height-width();
+    }
+}

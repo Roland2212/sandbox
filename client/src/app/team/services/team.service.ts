@@ -1,9 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { AbstractControl, FormGroup } from '@angular/forms';
-import { StatusResponse } from '@shared/interfaces/status-response.interface';
+import { SharedStatusResponse } from '@shared/interfaces/status-response.interface';
 import { Team } from '@team/interfaces/team.interface';
-import { BehaviorSubject, Observable } from 'rxjs';
+import { Observable } from 'rxjs';
 
 @Injectable()
 export class TeamService {
@@ -17,11 +16,11 @@ export class TeamService {
         return this.http.get<Team>(`http://localhost:5200/api/teams/${teamId}`);
     }
 
-    createTeam(team: Team): Observable<StatusResponse> {
-        return this.http.post<StatusResponse>(`http://localhost:5200/api/teams`, { ...team });
+    createTeam(team: Team): Observable<SharedStatusResponse> {
+        return this.http.post<SharedStatusResponse>(`http://localhost:5200/api/teams`, { ...team });
     }
 
-    updateTeam(team: Team): Observable<StatusResponse> {
-        return this.http.patch<StatusResponse>(`http://localhost:5200/api/teams`, { ...team });
+    updateTeam(team: Team): Observable<SharedStatusResponse> {
+        return this.http.patch<SharedStatusResponse>(`http://localhost:5200/api/teams`, { ...team });
     }
 }

@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { MatDialogRef } from '@angular/material/dialog';
 import { TranslateService } from '@ngx-translate/core';
-import { ValueLabel } from '@shared/interfaces/value-label.interface';
+import { SharedValueLabel } from '@shared/interfaces/value-label.interface';
 
 @Component({
     selector: 'app-settings-dialog',
@@ -10,7 +10,7 @@ import { ValueLabel } from '@shared/interfaces/value-label.interface';
     styleUrls: ['./settings.component.scss'],
 })
 export class SettingsDialogComponent implements OnInit {
-    languagesOptions: ValueLabel[] = [
+    languagesOptions: SharedValueLabel[] = [
         {
             value: 'en',
             label: 'English',

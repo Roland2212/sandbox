@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 
-export interface GenericObject {
+export interface SharedGenericObject {
     [key: string]: any;
 }

@@ -1,4 +1,4 @@
-export interface ValueLabel {
+export interface SharedValueLabel {
     value: string;
     label: string;
 }

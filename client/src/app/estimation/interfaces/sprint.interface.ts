@@ -1,12 +1,12 @@
 export interface Sprint {
     id: string;
+    teamId: string;
     name: string;
     startDate: string;
     endDate: string;
     status: SprintStatus;
-    daysRemain: number;
     pointsCapacity: number;
-    actualPointsCapacity: number;
+    actualPointsCapacity: number | null;
     members: SprintMember[];
 }
 
@@ -20,6 +20,8 @@ export interface SprintMember {
     id: string;
     name: string;
     role: string;
-    daysCapacity?: number;
-    actualDaysCapacity?: number;
+    daysCapacity: number;
+    actualDaysCapacity: number | null;
+    pointsCapacity: number;
+    actualPointsCapacity: number | null;
 }

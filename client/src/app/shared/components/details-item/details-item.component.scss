@@ -1,0 +1,23 @@
+@use 'variables';
+@use 'mixins';
+
+.details-item-container {
+    display: flex;
+    align-items: center;
+    gap: 0.5em;
+
+    .details-item {
+        @include mixins.flex-column;
+        align-items: flex-start;
+
+        .item-label {
+            font-size: 0.9em;
+            color: variables.$light-grey-text;
+        }
+
+        .item-value {
+            font-size: 1em;
+            color: variables.$dark-grey-text;
+        }
+    }
+}

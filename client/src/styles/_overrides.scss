@@ -1,0 +1,12 @@
+@use '@angular/material' as mat;
+@use './colors/accent';
+
+::ng-deep {
+    .mat-mdc-unelevated-button.mat-accent {
+        --mdc-filled-button-label-text-color: #fff;
+    }
+
+    .mat-mdc-raised-button.mat-accent {
+        --mdc-protected-button-label-text-color: #fff;
+    }
+}

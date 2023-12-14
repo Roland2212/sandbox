@@ -1,3 +1,3 @@
-export interface StatusResponse {
+export interface SharedStatusResponse {
     status: string;
 }
