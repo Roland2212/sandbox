@@ -1,5 +1,5 @@
 <div class="create-update-team-dialog-container">
-    <h1 mat-dialog-title>{{ 'team.' + dialogState + '_team' | translate }}</h1>
+    <h1 mat-dialog-title>{{ 'team.text.' + dialogState + '_team' | translate }}</h1>
     <mat-dialog-content>
         <form
             class="form grid-1"
@@ -34,7 +34,7 @@
         <div *ngFor="let member of membersForms; index as i">
             <div class="title-container">
                 <div class="title">
-                    <h3>{{ 'team.text.member' | translate }} {{ i + 1 }}</h3>
+                    <h3>{{ 'team.text.team_member' | translate }} {{ i + 1 }}</h3>
                 </div>
                 <div class="actions">
                     <button

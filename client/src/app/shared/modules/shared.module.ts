@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { MaterialModule } from './material.module';
 import { ReactiveFormsModule } from '@angular/forms';
-import { CommonModule } from '@angular/common';
+import { CommonModule, DatePipe } from '@angular/common';
 import { SharedBackButtonComponent } from '@shared/components/back-button/back-button.component';
 import { TranslateModule } from '@ngx-translate/core';
 import { SharedIsFalsePipe } from '@shared/pipes/is-false.pipe';
@@ -57,6 +57,6 @@ import { SharedDetailsPipe } from '@shared/pipes/details.pipe';
         SharedLoadingPipe,
         SharedDetailsPipe,
     ],
-    providers: [],
+    providers: [DatePipe],
 })
 export class SharedModule {}

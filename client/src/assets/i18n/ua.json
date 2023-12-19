@@ -6,7 +6,9 @@
       "save": "Зберегти",
       "back": "Назад",
       "create": "Створити",
-      "update": "Редагувати"
+      "update": "Редагувати",
+      "next": "Далі",
+      "reset": "Скинути"
     },
     "empty": {
       "default": "Немає даних"
@@ -39,15 +41,29 @@
       "team_name": "Назва команди",
       "country": "Країна",
       "information": "Інформація",
-      "team_members": "Члени команди",
-      "team_member": "Член команди",
+      "team_members": "Працівники",
+      "team_member": "Працівник",
       "name": "Ім`я",
       "surname": "Прізвище",
       "role": "Посада"
     },
     "button": {
-      "add_members": "Додати члена",
+      "add_members": "Додати працівника",
       "create_team": "Створити команду"
+    }
+  },
+  "estimation": {
+    "text": {
+      "sprints": "Спринт",
+      "create_sprint": "Створити спринт",
+      "general_information": "Основна інформація",
+      "team_working_days": "Робочі дні",
+      "sprint_capacity": "Дні спринту",
+      "summary": "Кінцева інформація",
+      "team_capacity": "Занятість команди"
+    },
+    "button": {
+      "create_sprint": "Створити спринт"
     }
   }
 }

@@ -13,9 +13,10 @@
                 [orientation]="(isMobileLayout$ | async) ? 'vertical' : 'horizontal'"
                 class="stepper-container">
                 <mat-step [stepControl]="sprintForm">
-                    <ng-template matStepLabel>General information</ng-template>
+                    <ng-template matStepLabel>{{ 'estimation.text.general_information' | translate }}</ng-template>
                     <ng-template matStepContent>
                         <div class="content">
+                            <h3>{{ 'estimation.text.general_information' | translate }}</h3>
                             <form
                                 class="form grid-1"
                                 [formGroup]="sprintForm">
@@ -59,16 +60,17 @@
                                 color="accent"
                                 mat-button
                                 matStepperNext>
-                                <mat-icon></mat-icon>
-                                Next
+                                <mat-icon>check_circle</mat-icon>
+                                {{ 'common.button.next' | translate }}
                             </button>
                         </div>
                     </ng-template>
                 </mat-step>
                 <mat-step>
-                    <ng-template matStepLabel>Team working days</ng-template>
+                    <ng-template matStepLabel>{{ 'estimation.text.team_working_days' | translate }}</ng-template>
                     <ng-template matStepContent>
                         <div class="content">
+                            <h3>{{ 'estimation.text.team_working_days' | translate }}</h3>
                             <ng-container *ngIf="team$ | async">
                                 <ng-container *ngFor="let item of teamCapacityMembers">
                                     <div>
@@ -101,28 +103,31 @@
                                 color="primary"
                                 mat-button
                                 matStepperPrevious>
-                                Back
+                                <mat-icon>arrow_back</mat-icon>
+                                {{ 'common.button.back' | translate }}
                             </button>
                             <button
                                 color="accent"
                                 mat-button
-                                (click)="goToSprintCapacity()">
-                                Next
+                                (click)="onNavigateToSprintCapacity()">
+                                <mat-icon>check_circle</mat-icon>
+                                {{ 'common.button.next' | translate }}
                             </button>
                         </div>
                     </ng-template>
                 </mat-step>
                 <mat-step [stepControl]="sprintCapacityForm">
-                    <ng-template matStepLabel>Sprint capacity</ng-template>
+                    <ng-template matStepLabel>{{ 'estimation.text.sprint_capacity' | translate }}</ng-template>
                     <ng-template matStepContent>
                         <div class="content">
+                            <h3>{{ 'estimation.text.sprint_capacity' | translate }}</h3>
                             <form
                                 class="form grid-1"
                                 [formGroup]="sprintCapacityForm">
                                 <app-shared-input
                                     [form]="sprintCapacityForm"
-                                    [control]="spritCapacityControl"
-                                    name="spritCapacity"
+                                    [control]="sprintCapacityControl"
+                                    name="sprintCapacity"
                                     label="Sprint Capacity (Days)"
                                     [classList]="['field']">
                                 </app-shared-input>
@@ -132,42 +137,62 @@
                                     color="primary"
                                     mat-button
                                     matStepperPrevious>
-                                    Back
+                                    <mat-icon>arrow_back</mat-icon>
+                                    {{ 'common.button.back' | translate }}
                                 </button>
                                 <button
                                     color="accent"
                                     mat-button
                                     matStepperNext>
-                                    Next
+                                    <mat-icon>check_circle</mat-icon>
+                                    {{ 'common.button.next' | translate }}
                                 </button>
                             </div>
                         </div>
                     </ng-template>
                 </mat-step>
                 <mat-step>
-                    <ng-template matStepLabel>Summary</ng-template>
+                    <ng-template matStepLabel>{{ 'estimation.text.summary' | translate }}</ng-template>
                     <ng-template matStepContent>
                         <div class="content">
-                            
-                        </div>
-                        <div class="actions">
-                            <button
-                                color="primary"
-                                mat-button
-                                matStepperPrevious>
-                                Back
-                            </button>
-                            <button
-                                color="primary"
-                                mat-button
-                                (click)="resetStepper()">
-                                Reset
-                            </button>
-                            <button
-                                color="accent"
-                                mat-flat-button>
-                                Create Sprint
-                            </button>
+                            <h3>{{ 'estimation.text.summary' | translate }}</h3>
+                            <h4>{{ 'estimation.text.general_information' | translate }}</h4>
+                            <app-shared-details-list
+                                [mapper]="sprintWizardMapper"
+                                [item]="generateSprintInformationSummary()"
+                                [columnsLength]="1">
+                            </app-shared-details-list>
+                            <h4>{{ 'estimation.text.team_capacity' | translate }}</h4>
+                            <div *ngFor="let item of teamCapacityMembers">
+                                <app-shared-details-list
+                                    [mapper]="teamCapacityMapper"
+                                    [item]="generateSprintTeamInformationSummary(item)"
+                                    [columnsLength]="1">
+                                </app-shared-details-list>
+                                <mat-divider></mat-divider>
+                            </div>
+                            <div class="actions">
+                                <button
+                                    color="primary"
+                                    mat-button
+                                    matStepperPrevious>
+                                    <mat-icon>arrow_back</mat-icon>
+                                    {{ 'common.button.back' | translate }}
+                                </button>
+                                <button
+                                    color="primary"
+                                    mat-button
+                                    (click)="onResetStepper()">
+                                    <mat-icon>restart_alt</mat-icon>
+                                    {{ 'common.button.reset' | translate }}
+                                </button>
+                                <button
+                                    color="accent"
+                                    mat-flat-button
+                                    (click)="onCreateSprint()">
+                                    {{ 'estimation.text.create_sprint' | translate }}
+                                </button>
+                            </div>
                         </div>
                     </ng-template>
                 </mat-step>

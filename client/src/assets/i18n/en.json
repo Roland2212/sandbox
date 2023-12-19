@@ -6,7 +6,9 @@
       "save": "Save",
       "back": "Back",
       "create": "Create",
-      "update": "Update"
+      "update": "Update",
+      "next": "Next",
+      "reset": "Reset"
     },
     "empty": {
       "default": "No data"
@@ -53,8 +55,15 @@
   "estimation": {
     "text": {
       "sprints": "Sprints",
-      "create_sprint": "Create sprint"
+      "create_sprint": "Create sprint",
+      "general_information": "General information",
+      "team_working_days": "Team working days",
+      "sprint_capacity": "Sprint capacity",
+      "summary": "Summary",
+      "team_capacity": "Team capacity"
     },
-    "button": {}
+    "button": {
+      "create_sprint": "Create sprint"
+    }
   }
 }
