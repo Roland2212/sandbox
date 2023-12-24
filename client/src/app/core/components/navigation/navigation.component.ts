@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { SettingsDialogComponent } from '@core/components/dialogs/settings/settings.component';
+import { CoreSettingsDialogComponent } from '@core/components/dialogs/settings/settings.component';
 import { SETTINGS_DIALOG_CONFIG } from './navigation.config';
 import { LayoutService } from '@core/services/layout.service';
 import { NavigationItem } from '@core/interfaces/navigation.interface';
@@ -12,11 +12,11 @@ import { AppState } from '@store/reducers/app.reducer';
 import { signOut } from '@store/actions/auth/auth.action';
 
 @Component({
-    selector: 'app-navigation',
+    selector: 'app-core-navigation',
     templateUrl: './navigation.component.html',
     styleUrls: ['./navigation.component.scss'],
 })
-export class NavigationComponent {
+export class CoreNavigationComponent {
     navigationItems: NavigationItem[] = NAVIGATION_ITEMS;
     isMobileLayout$: Observable<boolean> = this.layoutService.isMobile$;
 
@@ -32,7 +32,7 @@ export class NavigationComponent {
     }
 
     onOpenSettingsDialog(): void {
-        this.dialog.open(SettingsDialogComponent, SETTINGS_DIALOG_CONFIG);
+        this.dialog.open(CoreSettingsDialogComponent, SETTINGS_DIALOG_CONFIG);
     }
 
     onToggleSideNavigation(): void {

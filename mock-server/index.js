@@ -11,7 +11,7 @@ app.use(express.urlencoded({ limit: "30mb", extended: true }));
 app.use(cors());
 
 app.use("/api/teams", teamRoutes);
-app.use("/api/sprints", sprintRoutes);
+app.use("/api/teams", sprintRoutes);
 
 const PORT = 5200;
 

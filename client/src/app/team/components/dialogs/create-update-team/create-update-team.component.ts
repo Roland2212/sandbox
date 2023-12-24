@@ -27,8 +27,8 @@ export class CreateUpdateTeamDialogComponent implements OnInit {
     }
 
     constructor(
-        @Inject(MAT_DIALOG_DATA) private dialogData: { team: Team | null },
         private dialogRef: MatDialogRef<CreateUpdateTeamDialogComponent>,
+        @Inject(MAT_DIALOG_DATA) private dialogData: { team: Team | null },
         private store: Store,
         private teamService: TeamService,
     ) {}

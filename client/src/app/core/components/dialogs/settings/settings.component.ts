@@ -5,11 +5,11 @@ import { TranslateService } from '@ngx-translate/core';
 import { SharedValueLabel } from '@shared/interfaces/value-label.interface';
 
 @Component({
-    selector: 'app-settings-dialog',
+    selector: 'app-core-settings-dialog',
     templateUrl: './settings.component.html',
     styleUrls: ['./settings.component.scss'],
 })
-export class SettingsDialogComponent implements OnInit {
+export class CoreSettingsDialogComponent implements OnInit {
     languagesOptions: SharedValueLabel[] = [
         {
             value: 'en',
@@ -26,7 +26,7 @@ export class SettingsDialogComponent implements OnInit {
     });
 
     constructor(
-        private dialogRef: MatDialogRef<SettingsDialogComponent>,
+        private dialogRef: MatDialogRef<CoreSettingsDialogComponent>,
         private translateService: TranslateService,
     ) {}
 

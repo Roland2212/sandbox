@@ -7,6 +7,7 @@ import { Component, Input } from '@angular/core';
 })
 export class SharedDetailsItemComponent {
     @Input() icon: string = 'description';
-    @Input() label!: string;
+    @Input() label: string | null = null;
+    @Input() labelKey: string | null = null;
     @Input() value: string = '-';
 }

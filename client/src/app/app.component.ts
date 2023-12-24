@@ -11,7 +11,7 @@ import { User } from '@auth/interfaces/user.interface';
 @Component({
     selector: 'app-root',
     template: `<div class="root-wrapper" [ngClass]="layoutType">
-        <app-loader></app-loader>
+        <app-core-loader></app-core-loader>
         <router-outlet></router-outlet>
     </div>`,
 })

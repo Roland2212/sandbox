@@ -6,11 +6,11 @@ import { SideNavigationService } from '@core/services/side-navigation.service';
 import { SubscriptionDirective } from '@shared/directives/subscription.directive';
 
 @Component({
-    selector: 'app-side-navigation',
+    selector: 'app-core-side-navigation',
     templateUrl: './side-navigation.component.html',
     styleUrls: ['./side-navigation.component.scss'],
 })
-export class SideNavigationComponent extends SubscriptionDirective implements AfterViewInit {
+export class CoreSideNavigationComponent extends SubscriptionDirective implements AfterViewInit {
     @ViewChild('drawer') public sideNavigationRef!: MatSidenav;
     @Input() backdrop: boolean = true;
     @Input() mode: MatDrawerMode = 'over';

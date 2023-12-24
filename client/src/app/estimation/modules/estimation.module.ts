@@ -13,6 +13,9 @@ import { CreateSprintViewComponent } from '@estimation/views/create/create.compo
 import { EntityDefinitionService, EntityMetadataMap } from '@ngrx/data';
 import { SprintEntityService } from '@estimation/services/sprint-entity.service';
 import { SprintWizardCardComponent } from '@estimation/components/cards/sprint-wizard/sprint-wizard.component';
+import { UpdateSprintViewComponent } from '@estimation/views/update/update.component';
+import { SprintCardComponent } from '@estimation/components/cards/sprint/sprint.component';
+import { UpdateSprintDialogComponent } from '@estimation/components/dialogs/update-sprint/update-sprint.component';
 
 const entityMetadata: EntityMetadataMap = {
     Sprints: {},
@@ -26,10 +29,14 @@ const entityMetadata: EntityMetadataMap = {
         SprintsCardComponent,
         SprintListComponent,
         SprintWizardCardComponent,
+        SprintCardComponent,
         // Views
         OverviewViewComponent,
         SprintsViewComponent,
         CreateSprintViewComponent,
+        UpdateSprintViewComponent,
+        // Dialogs
+        UpdateSprintDialogComponent,
     ],
     imports: [EstimationRoutingModule, SharedModule],
     providers: [

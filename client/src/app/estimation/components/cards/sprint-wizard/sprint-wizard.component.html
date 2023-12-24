@@ -9,7 +9,7 @@
             <mat-stepper
                 linear
                 #sprintWizardStepper
-                labelPosition="bottom"
+                [labelPosition]="(isMobileLayout$ | async) ? 'end' : 'bottom'"
                 [orientation]="(isMobileLayout$ | async) ? 'vertical' : 'horizontal'"
                 class="stepper-container">
                 <mat-step [stepControl]="sprintForm">
@@ -24,7 +24,7 @@
                                     [form]="sprintForm"
                                     [control]="nameControl"
                                     name="name"
-                                    label="Sprint name"
+                                    [label]="'estimation.text.sprint_name' | translate"
                                     [classList]="['field']">
                                 </app-shared-input>
 
@@ -32,7 +32,7 @@
                                     [form]="sprintForm"
                                     [control]="startDateControl"
                                     name="startDate"
-                                    label="Start date"
+                                    [label]="'common.text.start_date' | translate"
                                     hint="mm/dd/yyyy"
                                     [classList]="['field']">
                                 </app-shared-date>
@@ -41,7 +41,7 @@
                                     [form]="sprintForm"
                                     [control]="endDateControl"
                                     name="endDate"
-                                    label="End date"
+                                    [label]="'common.text.end_date' | translate"
                                     hint="mm/dd/yyyy"
                                     [classList]="['field']">
                                 </app-shared-date>
@@ -50,7 +50,7 @@
                                     [form]="sprintForm"
                                     [control]="descriptionControl"
                                     name="description"
-                                    label="Sprint goal"
+                                    [label]="'estimation.text.sprint_goal' | translate"
                                     [classList]="['field']">
                                 </app-shared-textarea>
                             </form>
@@ -67,14 +67,15 @@
                     </ng-template>
                 </mat-step>
                 <mat-step>
-                    <ng-template matStepLabel>{{ 'estimation.text.team_working_days' | translate }}</ng-template>
+                    <ng-template matStepLabel>{{ 'estimation.text.team_capacity' | translate }}</ng-template>
                     <ng-template matStepContent>
                         <div class="content">
-                            <h3>{{ 'estimation.text.team_working_days' | translate }}</h3>
-                            <ng-container *ngIf="team$ | async">
-                                <ng-container *ngFor="let item of teamCapacityMembers">
+                            <h3>{{ 'estimation.text.team_capacity' | translate }}</h3>
+                            <ng-container *ngIf="!!team">
+                                <ng-container *ngFor="let item of teamMembersCapacity">
                                     <div>
                                         {{ item.member.name }}
+                                        {{ item.member.surname }}
                                         {{ item.member.role }}
                                     </div>
                                     <form
@@ -83,16 +84,16 @@
                                         <app-shared-input
                                             [form]="item.form"
                                             name="daysCapacity"
-                                            label="Working days"
+                                            [label]="'estimation.text.days_capacity' | translate"
                                             [classList]="['field']"
-                                            [validators]="teamCapacityValidators">
+                                            [validators]="teamMembersCapacityValidators">
                                         </app-shared-input>
                                         <app-shared-input
                                             [form]="item.form"
                                             name="pointsCapacity"
-                                            label="Sprint points"
+                                            [label]="'estimation.text.points_capacity' | translate"
                                             [classList]="['field']"
-                                            [validators]="teamCapacityValidators">
+                                            [validators]="teamMembersCapacityValidators">
                                         </app-shared-input>
                                     </form>
                                 </ng-container>
@@ -126,9 +127,16 @@
                                 [formGroup]="sprintCapacityForm">
                                 <app-shared-input
                                     [form]="sprintCapacityForm"
-                                    [control]="sprintCapacityControl"
-                                    name="sprintCapacity"
-                                    label="Sprint Capacity (Days)"
+                                    [control]="daysCapacityControl"
+                                    name="daysCapacity"
+                                    [label]="'estimation.text.days_capacity' | translate"
+                                    [classList]="['field']">
+                                </app-shared-input>
+                                <app-shared-input
+                                    [form]="sprintCapacityForm"
+                                    [control]="pointsCapacityControl"
+                                    name="pointsCapacity"
+                                    [label]="'estimation.text.points_capacity' | translate"
                                     [classList]="['field']">
                                 </app-shared-input>
                             </form>
@@ -160,14 +168,14 @@
                             <app-shared-details-list
                                 [mapper]="sprintWizardMapper"
                                 [item]="generateSprintInformationSummary()"
-                                [columnsLength]="1">
+                                [columnsLength]="(isMobileLayout$ | async) ? 1 : 2">
                             </app-shared-details-list>
                             <h4>{{ 'estimation.text.team_capacity' | translate }}</h4>
-                            <div *ngFor="let item of teamCapacityMembers">
+                            <div *ngFor="let item of teamMembersCapacity">
                                 <app-shared-details-list
                                     [mapper]="teamCapacityMapper"
                                     [item]="generateSprintTeamInformationSummary(item)"
-                                    [columnsLength]="1">
+                                    [columnsLength]="(isMobileLayout$ | async) ? 1 : 2">
                                 </app-shared-details-list>
                                 <mat-divider></mat-divider>
                             </div>

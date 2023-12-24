@@ -1,0 +1,20 @@
+@use 'mixins';
+
+:host {
+    @include mixins.flex-column();
+    @include mixins.full-height-width();
+
+    .sprints-container {
+        @include mixins.flex-column();
+        @include mixins.full-height-width();
+
+        mat-card {
+            overflow: hidden;
+            // background: linear-gradient(332deg, rgba(238,174,202,0.2) 31%, rgba(148,187,233,0.2) 80%);
+
+            mat-card-content {
+                overflow: scroll;
+            }
+        }
+    }
+}

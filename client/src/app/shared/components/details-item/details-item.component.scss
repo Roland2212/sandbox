@@ -6,6 +6,10 @@
     align-items: flex-start;
     gap: 0.5em;
 
+    mat-icon {
+        overflow: visible;
+    }
+
     .details-item {
         @include mixins.flex-column;
         align-items: flex-start;

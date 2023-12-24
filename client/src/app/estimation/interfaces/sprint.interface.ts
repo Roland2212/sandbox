@@ -1,26 +1,26 @@
-export interface Sprint {
+import { Member } from '@team/interfaces/team.interface';
+
+export interface Sprint extends DaysPointsCapacity {
     id: string;
+    teamId: string;
     name: string;
     startDate: string;
     endDate: string;
+    description: string;
     status: SprintStatus;
-    pointsCapacity: number;
-    actualPointsCapacity: number | null;
     members: SprintMember[];
 }
 
 export enum SprintStatus {
-    STARTED = 'started',
-    IN_PROGRESS = 'in_progress',
-    FINISHED = 'finished',
+    IN_PROGRESS = 'IN_PROGRESS',
+    FINISHED = 'FINISHED',
 }
 
-export interface SprintMember {
-    id: string;
-    name: string;
-    role: string;
-    daysCapacity: number;
+export interface SprintMember extends Member, DaysPointsCapacity {}
+
+export interface DaysPointsCapacity {
+    daysCapacity: number | null;
     actualDaysCapacity: number | null;
-    pointsCapacity: number;
+    pointsCapacity: number | null;
     actualPointsCapacity: number | null;
 }

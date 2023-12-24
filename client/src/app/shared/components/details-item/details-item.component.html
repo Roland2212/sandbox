@@ -1,7 +1,7 @@
 <div class="details-item-container">
     <mat-icon color="primary">{{ icon }}</mat-icon>
     <div class="details-item">
-        <div class="item-label">{{ label }}</div>
+        <div class="item-label">{{ labelKey ? (labelKey | translate) : label }}</div>
         <div class="item-value">{{ value }}</div>
     </div>
 </div>

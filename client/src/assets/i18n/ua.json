@@ -1,6 +1,9 @@
 {
   "common": {
-    "text": {},
+    "text": {
+      "start_date": "Дата початку",
+      "end_date": "Дата кінця"
+    },
     "button": {
       "cancel": "Скасувати",
       "save": "Зберегти",
@@ -54,13 +57,17 @@
   },
   "estimation": {
     "text": {
-      "sprints": "Спринт",
+      "sprints": "Спринти",
+      "sprint": "Спринт",
       "create_sprint": "Створити спринт",
       "general_information": "Основна інформація",
-      "team_working_days": "Робочі дні",
-      "sprint_capacity": "Дні спринту",
+      "sprint_capacity": "Завантаженість спринту",
       "summary": "Кінцева інформація",
-      "team_capacity": "Занятість команди"
+      "team_capacity": "Завантаженість команди",
+      "sprint_name": "Назва спринту",
+      "sprint_goal": "Мета спринту",
+      "days_capacity": "Завантаженість (Дні)",
+      "points_capacity": "Завантаженість (Балів)"
     },
     "button": {
       "create_sprint": "Створити спринт"

@@ -7,22 +7,23 @@ import { SubscriptionDirective } from '@shared/directives/subscription.directive
 import { SharedDetailsMapper } from '@shared/interfaces/details-mapper.interface';
 import { Member, Team } from '@team/interfaces/team.interface';
 import { TeamService } from '@team/services/team.service';
-import { Observable, of, tap } from 'rxjs';
+import { Observable, tap } from 'rxjs';
 import { SPRINT_WIZARD_MAPPER, TEAM_CAPACITY_MAPPER } from './sprint-wizard.config';
-import { SharedGenericObject } from '@shared/interfaces/generic-object.interface';
 import { DatePipe } from '@angular/common';
 import { DATE_FORMAT } from '@core/constants/date.constant';
+import { SprintService } from '@estimation/services/sprint.service';
+import { Sprint, SprintMember } from '@estimation/interfaces/sprint.interface';
 
 interface SprintFormI {
     name: FormControl<string>;
     startDate: FormControl<string>;
     endDate: FormControl<string>;
-    description?: FormControl<string>;
+    description: FormControl<string>;
 }
 
-interface TeamMemberCapacityFormI {
-    daysCapacity: FormControl<string>;
-    pointsCapacity: FormControl<string>;
+interface CapacityFormI {
+    daysCapacity: FormControl<number | null>;
+    pointsCapacity: FormControl<number | null>;
 }
 
 @Component({
@@ -43,14 +44,15 @@ export class SprintWizardCardComponent extends SubscriptionDirective implements 
     sprintForm = new FormGroup<SprintFormI>({} as SprintFormI);
 
     // Team Capacity Form
-    teamCapacityMembers: { member: Member; form: FormGroup<TeamMemberCapacityFormI> }[] = [];
-    teamCapacityValidators = [Validators.required];
+    teamMembersCapacity: { member: Member; form: FormGroup<CapacityFormI> }[] = [];
+    teamMembersCapacityValidators = [Validators.required];
 
     // Sprint Capacity Form
-    sprintCapacityControl = new FormControl('', [Validators.required]);
-    sprintCapacityForm = new FormGroup({});
+    daysCapacityControl = new FormControl<number | null>(null, [Validators.required]);
+    pointsCapacityControl = new FormControl<number | null>(null, [Validators.required]);
+    sprintCapacityForm = new FormGroup<CapacityFormI>({} as CapacityFormI);
 
-    team$!: Observable<Team>;
+    team!: Team;
 
     sprintWizardMapper: SharedDetailsMapper[] = SPRINT_WIZARD_MAPPER;
     teamCapacityMapper: SharedDetailsMapper[] = TEAM_CAPACITY_MAPPER;
@@ -63,6 +65,7 @@ export class SprintWizardCardComponent extends SubscriptionDirective implements 
         private route: ActivatedRoute,
         private layoutService: LayoutService,
         private teamService: TeamService,
+        private sprintService: SprintService,
         private datePipe: DatePipe,
     ) {
         super();
@@ -75,8 +78,8 @@ export class SprintWizardCardComponent extends SubscriptionDirective implements 
     onNavigateToSprintCapacity(): void {
         let isValid = true;
 
-        if (this.teamCapacityMembers.length) {
-            this.teamCapacityMembers.forEach(item => {
+        if (this.teamMembersCapacity.length) {
+            this.teamMembersCapacity.forEach(item => {
                 if (item.form.invalid) {
                     isValid = false;
                     item.form.markAllAsTouched();
@@ -93,13 +96,15 @@ export class SprintWizardCardComponent extends SubscriptionDirective implements 
 
     onResetStepper(): void {
         this.sprintWizardStepperRef.reset();
-        this.teamCapacityMembers.forEach(item => {
+        this.teamMembersCapacity.forEach(item => {
             item.form.reset();
         });
     }
 
     onCreateSprint(): void {
-        console.log(this.generateSprintInformationSummary());
+        const sprint = this.generateSprintInformationSummary();
+
+        this.addSubscription(this.sprintService.createSprint(this.teamId, sprint).pipe(tap(console.log)).subscribe());
     }
 
     private _getTeam(): void {
@@ -108,7 +113,7 @@ export class SprintWizardCardComponent extends SubscriptionDirective implements 
                 .getTeam(this.teamId)
                 .pipe(
                     tap(team => {
-                        this.team$ = of(team);
+                        this.team = team;
                         this._generateTeamCapacityForms(team.members);
                     }),
                 )
@@ -118,28 +123,32 @@ export class SprintWizardCardComponent extends SubscriptionDirective implements 
 
     private _generateTeamCapacityForms(members: Member[]): void {
         members.forEach(member => {
-            const form = new FormGroup<TeamMemberCapacityFormI>({
-                daysCapacity: new FormControl(''),
-                pointsCapacity: new FormControl(''),
-            } as TeamMemberCapacityFormI);
-            this.teamCapacityMembers.push({ member, form });
+            const form = new FormGroup<CapacityFormI>({
+                daysCapacity: new FormControl<number | null>(null),
+                pointsCapacity: new FormControl<number | null>(null),
+            });
+            this.teamMembersCapacity.push({ member, form });
         });
     }
 
-    generateSprintInformationSummary(): SharedGenericObject {
+    generateSprintInformationSummary(): Sprint {
+        const members = this.teamMembersCapacity.map(item => {
+            return this.generateSprintTeamInformationSummary(item);
+        });
         return {
             ...this.sprintForm.value,
             ...this.sprintCapacityForm.value,
-            startDate: this.datePipe.transform(this.sprintForm.value.startDate, DATE_FORMAT),
-            endDate: this.datePipe.transform(this.sprintForm.value.endDate, DATE_FORMAT),
-        };
+            startDate: this.datePipe.transform(this.sprintForm.value.startDate, DATE_FORMAT) || '',
+            endDate: this.datePipe.transform(this.sprintForm.value.endDate, DATE_FORMAT) || '',
+            members,
+        } as Sprint;
     }
 
-    generateSprintTeamInformationSummary(item: { member: Member; form: FormGroup }): SharedGenericObject {
+    generateSprintTeamInformationSummary(item: { member: Member; form: FormGroup<CapacityFormI> }): SprintMember {
         const { member, form } = item;
         return {
             ...member,
             ...form.value,
-        } as SharedGenericObject;
+        } as SprintMember;
     }
 }

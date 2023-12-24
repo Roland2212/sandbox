@@ -5,6 +5,7 @@
                 <mat-list-item
                     class="list-item"
                     *ngFor="let sprint of items.value"
+                    (click)="onNavigateToSprint(sprint.id)"
                     matRipple>
                     <mat-icon matListItemIcon>analytics</mat-icon>
                     <div matListItemTitle>{{ sprint.name }}</div>

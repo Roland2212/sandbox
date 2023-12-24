@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Sprint } from '@estimation/interfaces/sprint.interface';
 import { SprintService } from '@estimation/services/sprint.service';
 import { SubscriptionDirective } from '@shared/directives/subscription.directive';
@@ -19,6 +19,7 @@ export class SprintListComponent extends SubscriptionDirective implements OnInit
 
     constructor(
         private route: ActivatedRoute,
+        private router: Router,
         private sprintService: SprintService,
     ) {
         super();
@@ -28,7 +29,11 @@ export class SprintListComponent extends SubscriptionDirective implements OnInit
         this._getSprints();
     }
 
+    onNavigateToSprint(sprintId: string): void {
+        void this.router.navigate([`./${sprintId}`], { relativeTo: this.route });
+    }
+
     private _getSprints(): void {
-        this.sprints$ = this.sprintService.getAllSprints();
+        this.sprints$ = this.sprintService.getAllSprints(this.teamId);
     }
 }

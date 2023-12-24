@@ -9,5 +9,12 @@ export interface Member {
     id: string;
     name: string;
     surname: string;
-    role: string;
+    role: MemberRoles;
+}
+
+export enum MemberRoles {
+    FRONTEND_DEVELOPER = 'FRONTEND_DEVELOPER',
+    BACKEND_DEVELOPER = 'BACKEND_DEVELOPER',
+    PROJECT_MANAGER = 'PROJECT_MANAGER',
+    QA = 'QA',
 }

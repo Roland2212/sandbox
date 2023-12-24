@@ -1,0 +1,86 @@
+<div class="update-sprint-dialog-container">
+    <h1 mat-dialog-title>Update sprint</h1>
+    <mat-dialog-content>
+        <!-- <form
+            class="form grid-1"
+            [formGroup]="form">
+            <mat-form-field>
+                <mat-label>{{ 'team.text.team_name' | translate }}</mat-label>
+                <input
+                    matInput
+                    formControlName="name" />
+            </mat-form-field>
+            <mat-form-field>
+                <mat-label>{{ 'team.text.country' | translate }}</mat-label>
+                <input
+                    matInput
+                    formControlName="country" />
+            </mat-form-field>
+        </form> -->
+
+        <!-- <div class="title-container">
+            <div class="title">
+                <h3>{{ 'team.text.team_members' | translate }}</h3>
+            </div>
+            <div class="actions">
+                <button
+                    mat-icon-button
+                    (click)="addTeamMember()">
+                    <mat-icon>add</mat-icon>
+                </button>
+            </div>
+        </div> -->
+
+        <!-- <div *ngFor="let member of membersForms; index as i">
+            <div class="title-container">
+                <div class="title">
+                    <h3>{{ 'team.text.team_member' | translate }} {{ i + 1 }}</h3>
+                </div>
+                <div class="actions">
+                    <button
+                        mat-icon-button
+                        (click)="removeTeamMember(i)">
+                        <mat-icon>delete</mat-icon>
+                    </button>
+                </div>
+            </div>
+            <form
+                class="form grid-1"
+                [formGroup]="member">
+                <mat-form-field>
+                    <mat-label>{{ 'team.text.name' | translate }}</mat-label>
+                    <input
+                        matInput
+                        formControlName="name" />
+                </mat-form-field>
+                <mat-form-field>
+                    <mat-label>{{ 'team.text.surname' | translate }}</mat-label>
+                    <input
+                        matInput
+                        formControlName="surname" />
+                </mat-form-field>
+                <mat-form-field>
+                    <mat-label>{{ 'team.text.role' | translate }}</mat-label>
+                    <input
+                        matInput
+                        formControlName="role" />
+                </mat-form-field>
+            </form>
+        </div> -->
+    </mat-dialog-content>
+    <mat-dialog-actions align="end">
+        <button
+            color="primary"
+            mat-button
+            (click)="onClose()">
+            {{ 'common.button.cancel' | translate }}
+        </button>
+        <button
+            mat-button
+            color="accent"
+            (click)="onUpdateSprint()"
+            cdkFocusInitial>
+            {{ 'common.button.save' | translate }}
+        </button>
+    </mat-dialog-actions>
+</div>

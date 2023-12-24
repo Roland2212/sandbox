@@ -1,5 +1,6 @@
 <div
     class="loader-container"
     *ngIf="isLoading$ | async">
-    <mat-spinner></mat-spinner>
+    <mat-spinner diameter="24"></mat-spinner>
+    <span>{{ loadingMessage$ | async }}</span>
 </div>

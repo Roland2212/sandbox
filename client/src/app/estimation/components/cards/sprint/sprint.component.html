@@ -1,0 +1,45 @@
+<div class="sprint-container card-container">
+    <mat-card>
+        <mat-card-header>
+            <mat-card-title>
+                <h3>{{ 'estimation.text.sprint' | translate }}</h3>
+            </mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+            <div class="title-container">
+                <div class="title">
+                    <h4>{{ 'estimation.text.general_information' | translate }}</h4>
+                </div>
+                <div class="actions">
+                    <button
+                        mat-icon-button
+                        color="primary"
+                        [matMenuTriggerFor]="actions">
+                        <mat-icon>more_vert</mat-icon>
+                    </button>
+                </div>
+            </div>
+
+            <app-shared-details-list
+                [mapper]="sprintMapper"
+                [item]="sprint"
+                [columnsLength]="(isMobileLayout$ | async) ? 1 : 2">
+            </app-shared-details-list>
+
+            <div class="title-container">
+                <div class="title">
+                    <h4>{{ 'estimation.text.general_information' | translate }}</h4>
+                </div>
+            </div>
+        </mat-card-content>
+    </mat-card>
+</div>
+
+<mat-menu #actions>
+    <button
+        mat-menu-item
+        (click)="onOpenUpdateSprintDialog()">
+        <mat-icon>edit</mat-icon>
+        {{ 'common.button.update' | translate }}
+    </button>
+</mat-menu>

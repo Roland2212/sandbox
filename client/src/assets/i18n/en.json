@@ -1,6 +1,9 @@
 {
   "common": {
-    "text": {},
+    "text": {
+      "start_date": "Start date",
+      "end_date": "End date"
+    },
     "button": {
       "cancel": "Cancel",
       "save": "Save",
@@ -55,12 +58,16 @@
   "estimation": {
     "text": {
       "sprints": "Sprints",
+      "sprint": "Sprint",
       "create_sprint": "Create sprint",
       "general_information": "General information",
-      "team_working_days": "Team working days",
       "sprint_capacity": "Sprint capacity",
       "summary": "Summary",
-      "team_capacity": "Team capacity"
+      "team_capacity": "Team capacity",
+      "sprint_name": "Sprint name",
+      "sprint_goal": "Sprint goal",
+      "days_capacity": "Days Capacity",
+      "points_capacity": "Points Capacity"
     },
     "button": {
       "create_sprint": "Create sprint"

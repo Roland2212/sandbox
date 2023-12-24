@@ -1,28 +1,35 @@
 import { NgModule } from '@angular/core';
 import { CoreRoutingModule } from '@core/modules/routing.module';
 import { HomeViewComponent } from '@core/views/home/home.component';
-import { NavigationComponent } from '@core/components/navigation/navigation.component';
+import { CoreNavigationComponent } from '@core/components/navigation/navigation.component';
 import { SharedModule } from '@shared/modules/shared.module';
-import { SettingsDialogComponent } from '@core/components/dialogs/settings/settings.component';
-import { SideNavigationComponent } from '@core/components/side-navigation/side-navigation.component';
-import { LoaderService } from '@core/services/loader.service';
-import { LoaderInterceptor } from '@core/interceptors/loader.interceptor';
+import { CoreSettingsDialogComponent } from '@core/components/dialogs/settings/settings.component';
+import { CoreSideNavigationComponent } from '@core/components/side-navigation/side-navigation.component';
+import { CoreLoaderInterceptor } from '@core/interceptors/loader.interceptor';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
-import { LoaderComponent } from '@core/components/loader/loader.component';
+import { CoreLoaderComponent } from '@core/components/loader/loader.component';
+import { CoreNotifyInterceptor } from '@core/interceptors/notify.interceptor';
+import { CoreNotifyComponent } from '@core/components/notify/notify.component';
+import { MAT_SNACK_BAR_DEFAULT_OPTIONS } from '@angular/material/snack-bar';
 
 @NgModule({
     declarations: [
         // Views
         HomeViewComponent,
         // Components
-        NavigationComponent,
-        SideNavigationComponent,
-        LoaderComponent,
+        CoreNavigationComponent,
+        CoreSideNavigationComponent,
+        CoreLoaderComponent,
+        CoreNotifyComponent,
         // Dialogs
-        SettingsDialogComponent,
+        CoreSettingsDialogComponent,
     ],
     imports: [CoreRoutingModule, SharedModule],
-    exports: [LoaderComponent],
-    providers: [{ provide: HTTP_INTERCEPTORS, useClass: LoaderInterceptor, multi: true }],
+    exports: [CoreLoaderComponent],
+    providers: [
+        { provide: HTTP_INTERCEPTORS, useClass: CoreLoaderInterceptor, multi: true },
+        { provide: HTTP_INTERCEPTORS, useClass: CoreNotifyInterceptor, multi: true },
+        { provide: MAT_SNACK_BAR_DEFAULT_OPTIONS, useValue: { duration: 2500 } },
+    ],
 })
 export class CoreModule {}
