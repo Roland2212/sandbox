@@ -5,7 +5,7 @@ import { CommonModule, DatePipe } from '@angular/common';
 import { SharedBackButtonComponent } from '@shared/components/back-button/back-button.component';
 import { TranslateModule } from '@ngx-translate/core';
 import { SharedIsFalsePipe } from '@shared/pipes/is-false.pipe';
-import { ListLoadingComponent } from '@shared/components/list-loading/list-loading.component';
+import { SharedListLoadingComponent } from '@shared/components/list-loading/list-loading.component';
 import { HttpClientModule } from '@angular/common/http';
 import { SharedEmptyDataComponent } from '@shared/components/empty-data/empty-data.component';
 import { SharedLoadingListPipe } from '@shared/pipes/loading-list.pipe';
@@ -21,7 +21,7 @@ import { SharedDetailsPipe } from '@shared/pipes/details.pipe';
     declarations: [
         // Components
         SharedBackButtonComponent,
-        ListLoadingComponent,
+        SharedListLoadingComponent,
         SharedEmptyDataComponent,
         SharedInputComponent,
         SharedDateComponent,
@@ -44,7 +44,7 @@ import { SharedDetailsPipe } from '@shared/pipes/details.pipe';
         TranslateModule,
         // Components
         SharedBackButtonComponent,
-        ListLoadingComponent,
+        SharedListLoadingComponent,
         SharedEmptyDataComponent,
         SharedInputComponent,
         SharedDateComponent,

@@ -15,10 +15,10 @@
             </mat-list>
         </ng-template>
         <ng-template [ngIf]="isLoading">
-            <app-list-loading
+            <app-shared-list-loading
                 icon="groups"
                 [itemsLength]="3">
-            </app-list-loading>
+            </app-shared-list-loading>
         </ng-template>
         <ng-template [ngIf]="!items?.length && !isLoading">
             <app-shared-empty-data icon="groups"></app-shared-empty-data>

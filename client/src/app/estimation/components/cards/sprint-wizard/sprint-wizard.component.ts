@@ -44,6 +44,8 @@ export class SprintWizardCardComponent extends SubscriptionDirective implements 
     sprintForm = new FormGroup<SprintFormI>({} as SprintFormI);
 
     // Team Capacity Form
+
+    // TODO: Fix issue withresetinng forms
     teamMembersCapacity: { member: Member; form: FormGroup<CapacityFormI> }[] = [];
     teamMembersCapacityValidators = [Validators.required];
 

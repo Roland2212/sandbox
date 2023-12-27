@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { CoreNotifyComponent } from '@core/components/notify/notify.component';
-import { Notify } from '@core/interfaces/notify.interface';
+import { NotifyState } from '@core/interfaces/notify.interface';
 
 @Injectable({
     providedIn: 'root',
@@ -9,7 +9,7 @@ import { Notify } from '@core/interfaces/notify.interface';
 export class NotifyService {
     constructor(private snackBar: MatSnackBar) {}
 
-    showSnackBar(message: string, state: Notify): void {
+    showSnackBar(message: string, state: NotifyState): void {
         this.snackBar.openFromComponent(CoreNotifyComponent, { data: { message, state } });
     }
 }

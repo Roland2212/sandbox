@@ -11,8 +11,9 @@ export const getAllSprints = (request, response) => {
   });
 
   setTimeout(() => {
-    response.status(200).json(filteredSprintsByTeamId);
-  }, 10000);
+    // response.status(200).json(filteredSprintsByTeamId);
+    response.status(404).send(new Error('here'));
+  }, 500);
 };
 
 export const getSprint = (request, response) => {
