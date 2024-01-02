@@ -67,7 +67,9 @@
       "sprint_name": "Назва спринту",
       "sprint_goal": "Мета спринту",
       "days_capacity": "Завантаженість (Дні)",
-      "points_capacity": "Завантаженість (Балів)"
+      "actual_days_capacity": "Фактична завантаженість (Дні)",
+      "points_capacity": "Завантаженість (Балів)",
+      "actual_points_capacity": "Фактична завантаженість (Балів)"
     },
     "button": {
       "create_sprint": "Створити спринт"

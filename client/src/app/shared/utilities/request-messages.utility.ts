@@ -1,13 +1,11 @@
-import { LOADING_MESSAGE } from '@shared/constants/messages.constant';
-
-export const setLoadingMessage = (subject: string) => {
-    return { 'loading-message': LOADING_MESSAGE(subject) };
+export const setLoadingMessage = (subject: string, loadingMessageFn: (subject: string) => string) => {
+    return { 'loading-message': loadingMessageFn(subject) };
 };
 
-export const setSuccessMessage = (subject: string) => {
-    return { 'success-message': 'Success' };
+export const setSuccessMessage = (subject: string, successMessageFn: (subject: string) => string) => {
+    return { 'success-message': successMessageFn(subject) };
 };
 
-export const setErrorMessage = (subject: string) => {
-    return { 'error-message': 'Error' };
+export const setErrorMessage = (subject: string, errorMessageFn: (subject: string) => string) => {
+    return { 'error-message': errorMessageFn(subject) };
 };

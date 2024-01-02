@@ -4,13 +4,23 @@
     @include mixins.flex-column();
     @include mixins.full-height-width();
 
-    .sprints-container {
+    .sprint-container {
         @include mixins.flex-column();
         @include mixins.full-height-width();
 
         mat-card {
             overflow: hidden;
             // background: linear-gradient(332deg, rgba(238,174,202,0.2) 31%, rgba(148,187,233,0.2) 80%);
+
+            mat-card-header {
+                ::ng-deep .mat-mdc-card-header-text {
+                    width: 100%;
+
+                    .mat-mdc-card-title {
+                        display: flex;
+                    }
+                }
+            }
 
             mat-card-content {
                 overflow-y: scroll;

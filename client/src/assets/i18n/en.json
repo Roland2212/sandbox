@@ -67,7 +67,9 @@
       "sprint_name": "Sprint name",
       "sprint_goal": "Sprint goal",
       "days_capacity": "Days Capacity",
-      "points_capacity": "Points Capacity"
+      "actual_days_capacity": "Actual days Capacity",
+      "points_capacity": "Points Capacity",
+      "actual_points_capacity": "Actual points Capacity"
     },
     "button": {
       "create_sprint": "Create sprint"
