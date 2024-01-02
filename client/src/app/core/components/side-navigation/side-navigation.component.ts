@@ -2,7 +2,7 @@ import { AfterViewInit, Component, Input, ViewChild } from '@angular/core';
 import { MatDrawerMode, MatSidenav } from '@angular/material/sidenav';
 import { NavigationItem } from '@core/interfaces/navigation.interface';
 import { NAVIGATION_ITEMS } from '@core/routes/routes';
-import { SideNavigationService } from '@core/services/side-navigation.service';
+import { CoreSideNavigationService } from '@core/services/side-navigation.service';
 import { SubscriptionDirective } from '@shared/directives/subscription.directive';
 
 @Component({
@@ -17,7 +17,7 @@ export class CoreSideNavigationComponent extends SubscriptionDirective implement
 
     navigationItems: NavigationItem[] = NAVIGATION_ITEMS;
 
-    constructor(private sideNavigationService: SideNavigationService) {
+    constructor(private sideNavigationService: CoreSideNavigationService) {
         super();
     }
 

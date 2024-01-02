@@ -1,13 +1,15 @@
-<div
-    class="notify-container"
-    [ngClass]="state">
-    <span matSnackBarLabel>{{ message }}</span>
+<div class="notify-container">
+    <div matSnackBarLabel>
+        <mat-icon>{{ icon }}</mat-icon>
+        <span>{{ message }}</span>
+    </div>
     <span matSnackBarActions>
         <button
-            mat-button
+            color="accent"
+            mat-icon-button
             matSnackBarAction
             (click)="onDismiss()">
-            <mat-icon>cancel</mat-icon>
+            <mat-icon>close</mat-icon>
         </button>
     </span>
 </div>

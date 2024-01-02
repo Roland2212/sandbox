@@ -1,15 +1,25 @@
 import { Injectable } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { CoreNotifyComponent } from '@core/components/notify/notify.component';
-import { NotifyState } from '@core/interfaces/notify.interface';
+import { NotifyType } from '@core/interfaces/notify.interface';
 
 @Injectable({
     providedIn: 'root',
 })
-export class NotifyService {
+export class CoreNotifyService {
     constructor(private snackBar: MatSnackBar) {}
 
-    showSnackBar(message: string, state: NotifyState): void {
-        this.snackBar.openFromComponent(CoreNotifyComponent, { data: { message, state } });
+    showSuccessSnackBar(message: string): void {
+        this.snackBar.openFromComponent(CoreNotifyComponent, {
+            data: { icon: 'check', message },
+            panelClass: NotifyType.SUCCESS,
+        });
+    }
+
+    showErrorSnackBar(message: string): void {
+        this.snackBar.openFromComponent(CoreNotifyComponent, {
+            data: { icon: 'error', message },
+            panelClass: NotifyType.ERROR,
+        });
     }
 }

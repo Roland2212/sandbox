@@ -6,7 +6,7 @@ import { BehaviorSubject, Observable, Subscription, map } from 'rxjs';
 @Injectable({
     providedIn: 'root',
 })
-export class LayoutService implements OnDestroy {
+export class CoreLayoutService implements OnDestroy {
     private _currentLayoutType$: BehaviorSubject<LayoutTypes> = new BehaviorSubject<LayoutTypes>(LayoutTypes.DESKTOP);
     private _subscriptions: Subscription = new Subscription();
 

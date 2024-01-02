@@ -2,7 +2,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatStepper } from '@angular/material/stepper';
 import { ActivatedRoute } from '@angular/router';
-import { LayoutService } from '@core/services/layout.service';
+import { CoreLayoutService } from '@core/services/layout.service';
 import { SubscriptionDirective } from '@shared/directives/subscription.directive';
 import { SharedDetailsMapper } from '@shared/interfaces/details-mapper.interface';
 import { Member, Team } from '@team/interfaces/team.interface';
@@ -65,7 +65,7 @@ export class SprintWizardCardComponent extends SubscriptionDirective implements 
 
     constructor(
         private route: ActivatedRoute,
-        private layoutService: LayoutService,
+        private layoutService: CoreLayoutService,
         private teamService: TeamService,
         private sprintService: SprintService,
         private datePipe: DatePipe,

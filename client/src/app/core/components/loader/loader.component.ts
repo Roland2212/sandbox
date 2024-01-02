@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { LoaderService } from '@core/services/loader.service';
+import { CoreLoaderService } from '@core/services/loader.service';
 
 @Component({
     selector: 'app-core-loader',
@@ -10,5 +10,5 @@ export class CoreLoaderComponent {
     isLoading$ = this.loaderService.isLoading$;
     loadingMessage$ = this.loaderService.loadingMessage$;
 
-    constructor(private loaderService: LoaderService) {}
+    constructor(private loaderService: CoreLoaderService) {}
 }

@@ -1,0 +1,15 @@
+@use 'variables';
+
+.notify-container {
+    display: flex;
+    align-items: center;
+
+    mat-icon {
+        margin-right: 0.5em;
+    }
+
+    .mdc-snackbar__label {
+        display: flex;
+        align-items: center;
+    }
+}

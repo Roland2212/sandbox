@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { SubscriptionDirective } from '@shared/directives/subscription.directive';
-import { LayoutService } from '@core/services/layout.service';
+import { CoreLayoutService } from '@core/services/layout.service';
 import { TranslateService } from '@ngx-translate/core';
 import { tap } from 'rxjs';
 import { Store } from '@ngrx/store';
@@ -20,7 +20,7 @@ export class AppComponent extends SubscriptionDirective {
 
     constructor(
         public translateService: TranslateService,
-        private layoutService: LayoutService,
+        private layoutService: CoreLayoutService,
         private store: Store<AppState>,
     ) {
         super();

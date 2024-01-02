@@ -11,6 +11,7 @@ import { CoreLoaderComponent } from '@core/components/loader/loader.component';
 import { CoreNotifyInterceptor } from '@core/interceptors/notify.interceptor';
 import { CoreNotifyComponent } from '@core/components/notify/notify.component';
 import { MAT_SNACK_BAR_DEFAULT_OPTIONS } from '@angular/material/snack-bar';
+import { SNACKBAR_DURATION } from '@core/constants/notify.constant';
 
 @NgModule({
     declarations: [
@@ -29,7 +30,10 @@ import { MAT_SNACK_BAR_DEFAULT_OPTIONS } from '@angular/material/snack-bar';
     providers: [
         { provide: HTTP_INTERCEPTORS, useClass: CoreLoaderInterceptor, multi: true },
         { provide: HTTP_INTERCEPTORS, useClass: CoreNotifyInterceptor, multi: true },
-        { provide: MAT_SNACK_BAR_DEFAULT_OPTIONS, useValue: { duration: 2500 } },
+        {
+            provide: MAT_SNACK_BAR_DEFAULT_OPTIONS,
+            useValue: { duration: SNACKBAR_DURATION, horizontalPosition: 'end', verticalPosition: 'bottom' },
+        },
     ],
 })
 export class CoreModule {}

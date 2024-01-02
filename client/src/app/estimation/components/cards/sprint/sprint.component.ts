@@ -6,7 +6,7 @@ import { SubscriptionDirective } from '@shared/directives/subscription.directive
 import { SharedDetailsMapper } from '@shared/interfaces/details-mapper.interface';
 import { Observable, tap } from 'rxjs';
 import { SPRINT_MAPPER } from './sprint.config';
-import { LayoutService } from '@core/services/layout.service';
+import { CoreLayoutService } from '@core/services/layout.service';
 import { MatDialog } from '@angular/material/dialog';
 import { UpdateSprintDialogComponent } from '@estimation/components/dialogs/update-sprint/update-sprint.component';
 
@@ -32,7 +32,7 @@ export class SprintCardComponent extends SubscriptionDirective implements OnInit
 
     constructor(
         private route: ActivatedRoute,
-        private layoutService: LayoutService,
+        private layoutService: CoreLayoutService,
         private sprintService: SprintService,
         private dialog: MatDialog,
     ) {

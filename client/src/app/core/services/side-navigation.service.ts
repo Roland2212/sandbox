@@ -4,7 +4,7 @@ import { MatSidenav } from '@angular/material/sidenav';
 @Injectable({
     providedIn: 'root',
 })
-export class SideNavigationService {
+export class CoreSideNavigationService {
     private sideNavigation!: MatSidenav;
 
     setSideNavigation(sideNavigation: MatSidenav): void {
