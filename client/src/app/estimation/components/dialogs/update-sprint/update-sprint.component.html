@@ -1,72 +1,47 @@
 <div class="update-sprint-dialog-container">
     <h1 mat-dialog-title>Update sprint</h1>
     <mat-dialog-content>
-        <!-- <form
+        <form
             class="form grid-1"
             [formGroup]="form">
-            <mat-form-field>
-                <mat-label>{{ 'team.text.team_name' | translate }}</mat-label>
-                <input
-                    matInput
-                    formControlName="name" />
-            </mat-form-field>
-            <mat-form-field>
-                <mat-label>{{ 'team.text.country' | translate }}</mat-label>
-                <input
-                    matInput
-                    formControlName="country" />
-            </mat-form-field>
-        </form> -->
+            <app-shared-input
+                [control]="nameControl"
+                [label]="'estimation.text.sprint_name' | translate"
+                [classList]="['field']">
+            </app-shared-input>
 
-        <!-- <div class="title-container">
-            <div class="title">
-                <h3>{{ 'team.text.team_members' | translate }}</h3>
-            </div>
-            <div class="actions">
-                <button
-                    mat-icon-button
-                    (click)="addTeamMember()">
-                    <mat-icon>add</mat-icon>
-                </button>
-            </div>
-        </div> -->
+            <app-shared-date
+                [control]="startDateControl"
+                [label]="'common.text.start_date' | translate"
+                hint="mm/dd/yyyy"
+                [classList]="['field']">
+            </app-shared-date>
 
-        <!-- <div *ngFor="let member of membersForms; index as i">
-            <div class="title-container">
-                <div class="title">
-                    <h3>{{ 'team.text.team_member' | translate }} {{ i + 1 }}</h3>
-                </div>
-                <div class="actions">
-                    <button
-                        mat-icon-button
-                        (click)="removeTeamMember(i)">
-                        <mat-icon>delete</mat-icon>
-                    </button>
-                </div>
-            </div>
-            <form
-                class="form grid-1"
-                [formGroup]="member">
-                <mat-form-field>
-                    <mat-label>{{ 'team.text.name' | translate }}</mat-label>
-                    <input
-                        matInput
-                        formControlName="name" />
-                </mat-form-field>
-                <mat-form-field>
-                    <mat-label>{{ 'team.text.surname' | translate }}</mat-label>
-                    <input
-                        matInput
-                        formControlName="surname" />
-                </mat-form-field>
-                <mat-form-field>
-                    <mat-label>{{ 'team.text.role' | translate }}</mat-label>
-                    <input
-                        matInput
-                        formControlName="role" />
-                </mat-form-field>
-            </form>
-        </div> -->
+            <app-shared-date
+                [control]="endDateControl"
+                [label]="'common.text.end_date' | translate"
+                hint="mm/dd/yyyy"
+                [classList]="['field']">
+            </app-shared-date>
+
+            <app-shared-input
+                [control]="daysCapacityControl"
+                [label]="'estimation.text.days_capacity' | translate"
+                [classList]="['field']">
+            </app-shared-input>
+
+            <app-shared-input
+                [control]="pointsCapacityControl"
+                [label]="'estimation.text.points_capacity' | translate"
+                [classList]="['field']">
+            </app-shared-input>
+
+            <app-shared-textarea
+                [control]="descriptionControl"
+                [label]="'estimation.text.sprint_goal' | translate"
+                [classList]="['field']">
+            </app-shared-textarea>
+        </form>
     </mat-dialog-content>
     <mat-dialog-actions align="end">
         <button

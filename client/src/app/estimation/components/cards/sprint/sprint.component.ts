@@ -62,6 +62,10 @@ export class SprintCardComponent extends SubscriptionDirective implements OnInit
     }
 
     onOpenUpdateSprintDialog(): void {
-        this.dialog.open(UpdateSprintDialogComponent, { data: this.sprint }).afterClosed().pipe().subscribe();
+        this.dialog
+            .open(UpdateSprintDialogComponent, { data: { sprint: this.sprint } })
+            .afterClosed()
+            .pipe()
+            .subscribe();
     }
 }

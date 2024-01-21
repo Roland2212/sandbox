@@ -2,7 +2,7 @@ import { HttpEvent, HttpHandler, HttpInterceptor, HttpRequest } from '@angular/c
 import { Injectable } from '@angular/core';
 import { CoreLoaderService } from '@core/services/loader.service';
 import { SharedRequestHeader } from '@shared/interfaces/request-header.interface';
-import { Observable, delay, finalize } from 'rxjs';
+import { Observable, finalize } from 'rxjs';
 
 @Injectable()
 export class CoreLoaderInterceptor implements HttpInterceptor {
